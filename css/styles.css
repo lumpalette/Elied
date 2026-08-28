@@ -50,6 +50,7 @@ ul {
   padding: 0;
 }
 
+/* ===== MAIN HEADER ===== */
 .wrap {
   max-width: var(--content-width);
   margin: 0 auto;
@@ -62,7 +63,6 @@ ul {
   outline-offset: 3px;
 }
 
-/* ===== MAIN HEADER ===== */
 .site-header {
   border-bottom: 1px solid var(--line);
   position: sticky;
@@ -117,7 +117,7 @@ ul {
   border-radius: 2px;
   font-size: 0.9rem;
 }
- 
+
 .btn-login:hover {
   border-color: var(--ink);
 }
@@ -128,7 +128,7 @@ ul {
   padding-bottom: 2rem;
   border-top: 1px solid var(--line);
 }
- 
+
 .footer-bottom {
   display: flex;
   justify-content: space-between;
@@ -138,8 +138,56 @@ ul {
   font-size: 0.85rem;
   color: var(--ink-muted);
 }
- 
+
 .footer-bottom .logo {
   font-size: 1.1rem;
   color: var(--ink);
+}
+
+/* ===== ABOUT ====== */
+.page-intro {
+  padding-top: clamp(2.5rem, 6vw, 4rem);
+  padding-bottom: 1.5rem;
+  text-align: center;
+}
+ 
+.page-title {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+}
+
+.about-content {
+  padding-top: 1.5rem;
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+}
+ 
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.about-block h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.9rem;
+  text-align: center;
+}
+
+.about-block p {
+  color: var(--ink-muted);
+  text-align: justify;
+}
+
+.datos-list .info {
+  margin-bottom: 1rem;
+}
+ 
+.datos-list dt {
+  font-size: 0.85rem;
+  color: var(--olive);
+  margin-bottom: 0.25rem;
+}
+ 
+.datos-list dd {
+  margin: 0;
+  color: var(--ink-muted);
 }
