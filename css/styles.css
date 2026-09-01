@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,500&family=Inter:wght@400;500;600&display=swap');
+
 :root {
   --bg: #161412;
   --bg-raised: #1e1b18;
@@ -34,7 +36,8 @@ body {
   line-height: 1.6;
 }
 
-img, svg {
+img,
+svg {
   max-width: 100%;
   display: block;
 }
@@ -177,17 +180,153 @@ ul {
   text-align: justify;
 }
 
-.datos-list .info {
+.data-list .info {
   margin-bottom: 1rem;
 }
  
-.datos-list dt {
+.data-list dt {
   font-size: 0.85rem;
   color: var(--olive);
   margin-bottom: 0.25rem;
 }
  
-.datos-list dd {
+.data-list dd {
   margin: 0;
   color: var(--ink-muted);
+}
+
+/* ===== CONTACT ===== */
+.contact-content {
+  padding-top: 1.5rem;
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+}
+ 
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: start;
+}
+
+@media (max-width: 760px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-form-block {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+ 
+.contact-form .field {
+  margin-bottom: 1.25rem;
+}
+ 
+.contact-form label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--olive);
+  margin-bottom: 0.4rem;
+}
+ 
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 2px;
+  transition: border-color 0.15s ease;
+}
+ 
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--ink-muted);
+  opacity: 0.7;
+}
+ 
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--olive);
+}
+ 
+.contact-form textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+ 
+.btn-submit {
+  display: inline-block;
+  background: var(--wine);
+  color: var(--ink);
+  border: 1px solid var(--wine);
+  padding: 0.7rem 1.6rem;
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+ 
+.btn-submit:hover {
+  background: var(--wine-light);
+  border-color: var(--wine-light);
+}
+ 
+.form-status {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--olive);
+  min-height: 1.2em;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+ 
+.form-status.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+ 
+.contact-info-block h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+ 
+.contact-note {
+  color: var(--ink-muted);
+  margin-bottom: 1.25rem;
+}
+
+/* ===== CONTACT: Social links ===== */
+.social-links {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  gap: 0.9rem;
+}
+ 
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--ink-muted);
+  transition: color 0.15s ease, opacity 0.15s ease;
+}
+ 
+.social-links a:hover {
+  color: var(--ink);
+  opacity: 0.85;
+}
+ 
+.social-links img {
+  flex-shrink: 0;
 }
