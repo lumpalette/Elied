@@ -147,7 +147,7 @@ ul {
   color: var(--ink);
 }
 
-/* ===== ABOUT ====== */
+/* ===== PAGE HEADER ===== */
 .page-intro {
   padding-top: clamp(2.5rem, 6vw, 4rem);
   padding-bottom: 1.5rem;
@@ -158,6 +158,13 @@ ul {
   font-size: clamp(2.2rem, 5vw, 3rem);
 }
 
+.page-subtitle {
+  margin-top: 0.75rem;
+  color: var(--ink-muted);
+  font-size: 1rem;
+}
+
+/* ===== ABOUT ====== */
 .about-content {
   padding-top: 1.5rem;
   padding-bottom: clamp(3rem, 8vw, 5rem);
@@ -291,6 +298,7 @@ ul {
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
  
+/* No sé si hay una forma más apropiada de hacer esto xd pero así funciona */
 .form-status.is-visible {
   opacity: 1;
   transform: translateY(0);
@@ -329,4 +337,88 @@ ul {
  
 .social-links img {
   flex-shrink: 0;
+}
+
+/* ===== CATALOG ===== */
+.catalog-content {
+  padding-top: 1.5rem;
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+}
+ 
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+}
+
+@media (max-width: 960px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+ 
+@media (max-width: 520px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+ 
+/* ===== CATALOG: Product card ===== */
+.product-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+ 
+.product-link {
+  display: block;
+  padding: 1rem 1rem 0.5rem;
+}
+ 
+.product-thumb {
+  aspect-ratio: 3 / 4;
+  border-radius: 2px;
+  margin-bottom: 0.9rem;
+  background: linear-gradient(155deg, var(--line), var(--bg));
+}
+ 
+.product-thumb[data-tone="1"] { background: linear-gradient(155deg, #7a2e2e, #161412); }
+.product-thumb[data-tone="2"] { background: linear-gradient(155deg, #9c8b6e, #161412); }
+.product-thumb[data-tone="3"] { background: linear-gradient(155deg, #9c4444, #1e1b18); }
+.product-thumb[data-tone="4"] { background: linear-gradient(155deg, #33302c, #161412); }
+.product-thumb[data-tone="5"] { background: linear-gradient(155deg, #7a2e2e, #33302c); }
+.product-thumb[data-tone="6"] { background: linear-gradient(155deg, #9c8b6e, #1e1b18); }
+.product-thumb[data-tone="7"] { background: linear-gradient(155deg, #33302c, #7a2e2e); }
+.product-thumb[data-tone="8"] { background: linear-gradient(155deg, #9c4444, #161412); }
+ 
+.product-name {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+  text-align: center;
+}
+ 
+.product-price {
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+}
+ 
+.btn-detail {
+  display: block;
+  text-align: center;
+  margin: 0.9rem 1rem 1rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--olive);
+  border-radius: 2px;
+  font-size: 0.85rem;
+  color: var(--ink);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+ 
+.btn-detail:hover {
+  background: var(--wine);
+  border-color: var(--wine);
 }
