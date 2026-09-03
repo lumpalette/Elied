@@ -485,3 +485,73 @@ ul {
 .product-detail-actions .btn-detail {
   margin: 0;
 }
+
+/* ===== AUTH (Registro / Login) ===== */
+.auth-content {
+  padding-top: 1.5rem;
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+}
+
+.auth-wrap {
+  max-width: 420px;
+}
+
+.auth-form {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.auth-form .field {
+  margin-bottom: 1.25rem;
+}
+
+.auth-form label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--olive);
+  margin-bottom: 0.4rem;
+}
+
+.auth-form input {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 2px;
+  transition: border-color 0.15s ease;
+}
+
+.auth-form input::placeholder {
+  color: var(--ink-muted);
+  opacity: 0.7;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--olive);
+}
+
+.auth-form .btn-submit {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.auth-alt {
+  margin-top: 1.25rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+}
+
+.auth-alt a {
+  color: var(--olive);
+}
+
+.auth-alt a:hover {
+  color: var(--ink);
+}
