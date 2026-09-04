@@ -110,6 +110,49 @@ ul {
   letter-spacing: 0.02em;
 }
 
+/* ===== MAIN HEADER: Mobile menu toggle ===== */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 1.3rem;
+  line-height: 1;
+  padding: 0.4rem 0.7rem;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.nav-toggle:hover {
+  border-color: var(--olive);
+}
+
+@media (max-width: 760px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    flex-basis: 100%;
+    display: none;
+  }
+
+  .main-nav.is-open {
+    display: block;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-top: 1rem;
+  }
+
+  .btn-login {
+    display: inline-block;
+  }
+}
+
 /* ===== MAIN HEADER: Navigation Bar ===== */
 .main-nav ul {
   display: flex;
