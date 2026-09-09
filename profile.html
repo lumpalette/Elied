@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elied - Mi perfil</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a href="index.html" class="logo">Elied</a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="catalog.html">Catálogo</a></li>
+            <li><a href="about.html">Nosotros</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+            <li><a href="profile.html">Mi perfil</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+      </div>
+    </header>
+    <main>
+      <section class="profile-content">
+        <div class="wrap">
+          <div class="profile-card">
+            <div class="profile-header">
+              <div class="profile-avatar">JP</div>
+              <div>
+                <h1 class="profile-name">Betabel</h1>
+                <p class="profile-email">poeoquito.bb@ejemplo.com</p>
+              </div>
+            </div>
+            <div class="profile-grid">
+              <div class="profile-block">
+                <h2>Mis datos</h2>
+                <dl class="data-list">
+                  <div class="info">
+                    <dt>Nombre</dt>
+                    <dd>Betabel</dd>
+                  </div>
+                  <div class="info">
+                    <dt>Correo</dt>
+                    <dd>poeoquito.bb@ejemplo.com</dd>
+                  </div>
+                </dl>
+              </div>
+              <div class="profile-block">
+                <h2>Mis compras</h2>
+                <p class="profile-placeholder">Próximamente</p>
+              </div>
+            </div>
+
+            <button id="logout-btn" class="btn-detail profile-logout">
+              Cerrar sesión
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-bottom">
+        <span class="logo">Elied</span>
+        <span>&copy; 2026 Elied.</span>
+      </div>
+    </footer>
+    <script src="js/nav.js"></script>
+    <script src="js/profile.js"></script>
+  </body>
+</html>
