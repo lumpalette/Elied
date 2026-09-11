@@ -1,4 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,500&family=Inter:wght@400;500;600&display=swap');
+@font-face {
+  font-family: "Fraunces";
+  src: url("../res/fonts/Fraunces.ttf") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("../res/fonts/Fraunces-italic.ttf") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../res/fonts/Inter.ttf") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --bg: #161412;
@@ -554,8 +576,31 @@ button {
   opacity: 0.85;
 }
  
-.social-links img {
+.social-icon {
   flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  background-color: var(--olive);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  transition: background-color 0.15s ease;
+}
+
+.social-icon-instagram {
+  -webkit-mask-image: url("../res/images/icons/instagram.svg");
+  mask-image: url("../res/images/icons/instagram.svg");
+}
+
+.social-icon-facebook {
+  -webkit-mask-image: url("../res/images/icons/facebook.svg");
+  mask-image: url("../res/images/icons/facebook.svg");
+}
+
+.social-icon-whatsapp {
+  -webkit-mask-image: url("../res/images/icons/whatsapp.svg");
+  mask-image: url("../res/images/icons/whatsapp.svg");
 }
 
 /* ===== CATALOG ===== */
