@@ -1,0 +1,6 @@
+/* Imported by most pages, this includes the global style and the main header and footer. */
+
+@import url("tokens.css");
+@import url("buttons.css");
+@import url("../components/site-header/site-header.css");
+@import url("../components/site-footer/site-footer.css");

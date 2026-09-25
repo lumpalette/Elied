@@ -1,27 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elied - Contacto</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Elied, ropa y accesorios</title>
+    <link rel="stylesheet" href="../../shared/base.css">
+    <link rel="stylesheet" href="contact.css">
   </head>
   <body>
-    <header class="site-header">
-      <div class="wrap">
-        <a href="index.html" class="logo">Elied</a>
-        <nav class="main-nav">
-          <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="catalog.html">Catálogo</a></li>
-            <li><a href="about.html">Nosotros</a></li>
-            <li><a href="contact.html" class="active">Contacto</a></li>
-            <li><a href="login.html" class="btn-login">Iniciar sesión</a></li>
-          </ul>
-        </nav>
-        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
-      </div>
-    </header>
+    <site-header root="../../" active="contact"></site-header>
     <main>
       <section class="page-intro">
         <div class="wrap">
@@ -31,8 +18,8 @@
       </section>
       <section class="contact-content">
         <div class="wrap contact-grid">
-          <div class="contact-form-block">
-            <form id="contact-form" class="contact-form">
+          <div class="card">
+            <form id="contact-form">
               <div class="field">
                 <label for="nombre">Nombre</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
@@ -45,7 +32,7 @@
                 <label for="mensaje">Mensaje</label>
                 <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí" required></textarea>
               </div>
-              <button type="submit" class="btn-submit">Enviar</button>
+              <button type="submit" class="btn btn-primary">Enviar</button>
               <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
             </form>
           </div>
@@ -54,19 +41,19 @@
             <p class="contact-note">También puedes encontrarnos en nuestras redes sociales.</p>
             <ul class="social-links">
               <li>
-                <a href="poeoquito.html" aria-label="Instagram">
+                <a href="../poeoquito/poeoquito.html" aria-label="Instagram">
                   <span class="social-icon social-icon-instagram"></span>
                   <span>Instagram</span>
                 </a>
               </li>
               <li>
-                <a href="poeoquito.html" aria-label="Facebook">
+                <a href="../poeoquito/poeoquito.html" aria-label="Facebook">
                   <span class="social-icon social-icon-facebook"></span>
                   <span>Facebook</span>
                 </a>
               </li>
               <li>
-                <a href="poeoquito.html" aria-label="WhatsApp">
+                <a href="../poeoquito/poeoquito.html" aria-label="WhatsApp">
                   <span class="social-icon social-icon-whatsapp"></span>
                   <span>WhatsApp</span>
                 </a>
@@ -76,13 +63,10 @@
         </div>
       </section>
     </main>
-    <footer class="site-footer">
-      <div class="wrap footer-bottom">
-        <span class="logo">Elied</span>
-        <span>&copy; 2026 Elied.</span>
-      </div>
-    </footer>
-    <script src="js/nav.js"></script>
-    <script src="js/contact.js"></script>
+    <site-footer></site-footer>
+
+    <script src="../../components/site-header/site-header.js" defer></script>
+    <script src="../../components/site-footer/site-footer.js" defer></script>
+    <script src="contact.js" defer></script>
   </body>
 </html>

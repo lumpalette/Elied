@@ -1,0 +1,49 @@
+@import url("../thumbnail/thumbnail.css");
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+}
+
+@media (max-width: 960px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .product-grid { grid-template-columns: 1fr; }
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.product-link {
+  display: block;
+  padding: 1rem 1rem 0.5rem;
+}
+
+.product-card .thumbnail {
+  margin-bottom: 0.9rem;
+}
+
+.product-name {
+  margin-bottom: 0.35rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.product-price {
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+}
+
+.product-card .btn {
+  margin: 0.9rem 1rem 1rem;
+}

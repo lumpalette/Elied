@@ -1,0 +1,7 @@
+@import url("../../components/page-intro/page-intro.css");
+@import url("../../components/product-card/product-card.css");
+
+.catalog-content {
+  padding-top: 1.5rem;
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+}

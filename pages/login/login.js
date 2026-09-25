@@ -8,6 +8,6 @@ form.addEventListener('submit', function (e) {
     formStatus.classList.add('is-visible');
 
     setTimeout(() => {
-        window.location.href = "profile.html";
+        window.location.href = "../profile/profile.html";
     }, 1000);
 });

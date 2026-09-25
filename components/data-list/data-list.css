@@ -1,0 +1,19 @@
+.data-list .info {
+  margin-bottom: 1rem;
+}
+
+.data-list .info:last-child {
+  margin-bottom: 0;
+}
+
+.data-list dt {
+  margin-bottom: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--olive);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.data-list dd {
+  color: var(--ink-muted);
+}

@@ -1,0 +1,50 @@
+@import url("../../components/page-intro/page-intro.css");
+@import url("../../components/data-list/data-list.css");
+@import url("../../shared/card.css");
+
+.about-content {
+  padding-top: 1rem;
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+}
+
+.about-lead {
+  max-width: 560px;
+  margin: 0 auto clamp(2.5rem, 6vw, 3.5rem);
+  text-align: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+  color: var(--ink-muted);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+@media (max-width: 860px) {
+  .about-grid { grid-template-columns: 1fr; }
+}
+
+.about-block {
+  border-top: 2px solid var(--wine-light);
+}
+
+.about-index {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--olive);
+}
+
+.about-block h2 {
+  margin-bottom: 0.9rem;
+  font-size: 1.25rem;
+}
+
+.about-block p {
+  color: var(--ink-muted);
+}

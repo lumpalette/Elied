@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elied, ropa y accesorios</title>
+    <link rel="stylesheet" href="../../shared/base.css">
+    <link rel="stylesheet" href="catalog.css">
+  </head>
+  <body>
+    <site-header root="../../" active="catalog"></site-header>
+    <main>
+      <section class="page-intro">
+        <div class="wrap">
+          <h1 class="page-title">Catálogo</h1>
+          <p class="page-subtitle">Ropa casual pensada para el día a día.</p>
+        </div>
+      </section>
+      <section class="catalog-content">
+        <div class="wrap">
+          <ul class="product-grid" id="catalog-grid"></ul>
+        </div>
+      </section>
+    </main>
+    <site-footer></site-footer>
+
+    <script src="../../components/site-header/site-header.js" defer></script>
+    <script src="../../components/site-footer/site-footer.js" defer></script>
+    <script src="../../shared/product_data.js" defer></script>
+    <script src="../../components/product-card/product-card.js" defer></script>
+    <script src="catalog.js" defer></script>
+  </body>
+</html>

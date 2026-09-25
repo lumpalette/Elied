@@ -1,0 +1,14 @@
+.thumbnail {
+  aspect-ratio: 3 / 4;
+  border-radius: 2px;
+  background: linear-gradient(155deg, var(--line), var(--bg));
+}
+
+.thumbnail[data-tone="1"] { background: linear-gradient(155deg, var(--wine), var(--bg)); }
+.thumbnail[data-tone="2"] { background: linear-gradient(155deg, var(--olive), var(--bg)); }
+.thumbnail[data-tone="3"] { background: linear-gradient(155deg, var(--wine-light), var(--bg-raised)); }
+.thumbnail[data-tone="4"] { background: linear-gradient(155deg, var(--line), var(--bg)); }
+.thumbnail[data-tone="5"] { background: linear-gradient(155deg, var(--wine), var(--line)); }
+.thumbnail[data-tone="6"] { background: linear-gradient(155deg, var(--olive), var(--bg-raised)); }
+.thumbnail[data-tone="7"] { background: linear-gradient(155deg, var(--line), var(--wine)); }
+.thumbnail[data-tone="8"] { background: linear-gradient(155deg, var(--wine-light), var(--bg)); }

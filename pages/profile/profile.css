@@ -1,0 +1,67 @@
+@import url("../../components/data-list/data-list.css");
+@import url("../../shared/card.css");
+
+.profile-content {
+  padding-top: clamp(2.5rem, 6vw, 4rem);
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+}
+
+.profile-card {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-bottom: 1.75rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.profile-avatar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(155deg, var(--wine), var(--olive));
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+}
+
+.profile-name {
+  margin-bottom: 0.25rem;
+  font-size: 1.5rem;
+}
+
+.profile-email {
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 560px) {
+  .profile-grid { grid-template-columns: 1fr; }
+}
+
+.profile-block h2 {
+  margin-bottom: 0.9rem;
+  font-size: 1.05rem;
+  color: var(--olive);
+}
+
+.profile-placeholder {
+  color: var(--ink-muted);
+  font-style: italic;
+  font-size: 0.92rem;
+}

@@ -1,27 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elied - Nosotros</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Elied, ropa y accesorios</title>
+    <link rel="stylesheet" href="../../shared/base.css">
+    <link rel="stylesheet" href="about.css">
   </head>
   <body>
-    <header class="site-header">
-      <div class="wrap">
-        <a href="index.html" class="logo">Elied</a>
-        <nav class="main-nav">
-          <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="catalog.html">Catálogo</a></li>
-            <li><a href="about.html" class="active">Nosotros</a></li>
-            <li><a href="contact.html">Contacto</a></li>
-            <li><a href="login.html" class="btn-login">Iniciar sesión</a></li>
-          </ul>
-        </nav>
-        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
-      </div>
-    </header>
+    <site-header root="../../" active="about"></site-header>
     <main>
       <section class="page-intro">
         <div class="wrap">
@@ -36,7 +23,7 @@
           </p>
 
           <div class="about-grid">
-            <div class="about-block">
+            <div class="about-block card">
               <span class="about-index">01</span>
               <h2>Nuestra historia</h2>
               <p>
@@ -46,7 +33,7 @@
                 probando cada pieza antes de ofrecerla.
               </p>
             </div>
-            <div class="about-block">
+            <div class="about-block card">
               <span class="about-index">02</span>
               <h2>Qué vendemos</h2>
               <p>
@@ -55,7 +42,7 @@
                 una temporada.
               </p>
             </div>
-            <div class="about-block">
+            <div class="about-block card">
               <span class="about-index">03</span>
               <h2>Datos</h2>
               <dl class="data-list">
@@ -73,12 +60,9 @@
         </div>
       </section>
     </main>
-    <footer class="site-footer">
-      <div class="wrap footer-bottom">
-        <span class="logo">Elied</span>
-        <span>&copy; 2026 Elied.</span>
-      </div>
-    </footer>
-    <script src="js/nav.js"></script>
+    <site-footer></site-footer>
+
+    <script src="../../components/site-header/site-header.js" defer></script>
+    <script src="../../components/site-footer/site-footer.js" defer></script>
   </body>
 </html>

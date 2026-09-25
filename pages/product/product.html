@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elied, ropa y accesorios</title>
+    <link rel="stylesheet" href="../../shared/base.css">
+    <link rel="stylesheet" href="product.css">
+  </head>
+  <body>
+    <site-header root="../../" active="catalog"></site-header>
+    <main>
+      <section class="product-detail-content">
+        <div class="wrap product-detail-grid" id="product-detail">
+          <div class="thumbnail" id="product-thumbnail"></div>
+          <div class="product-detail-info">
+            <h1 class="product-detail-name" id="product-name"></h1>
+            <p class="product-detail-price" id="product-price"></p>
+            <p class="product-detail-desc" id="product-desc"></p>
+            <div class="product-detail-actions">
+              <a href="../login/login.html" class="btn btn-primary">Agregar al carrito (inicia sesión)</a>
+              <a href="../catalog/catalog.html" class="btn btn-sm">Regresar al catálogo</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <site-footer></site-footer>
+
+    <script src="../../components/site-header/site-header.js" defer></script>
+    <script src="../../components/site-footer/site-footer.js" defer></script>
+    <script src="../../shared/product_data.js" defer></script>
+    <script src="product.js" defer></script>
+  </body>
+</html>
