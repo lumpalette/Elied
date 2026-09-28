@@ -18,7 +18,28 @@
       </section>
       <section class="catalog-content">
         <div class="wrap">
+          <div class="catalog-toolbar">
+            <div class="filter-chips" role="group" aria-label="Filtrar por categoría">
+              <button class="chip is-active" data-category="all" aria-pressed="true">Todos</button>
+              <button class="chip" data-category="tshirts" aria-pressed="false">Playeras</button>
+              <button class="chip" data-category="blouses" aria-pressed="false">Blusas</button>
+              <button class="chip" data-category="pants" aria-pressed="false">Pantalones</button>
+              <button class="chip" data-category="dresses" aria-pressed="false">Vestidos</button>
+              <button class="chip" data-category="accessories" aria-pressed="false">Accesorios</button>
+            </div>
+            <div class="field catalog-sort">
+              <label for="sort">Ordenar por</label>
+              <select id="sort">
+                <option value="default">Destacados</option>
+                <option value="price-asc">Precio: menor a mayor</option>
+                <option value="price-desc">Precio: mayor a menor</option>
+                <option value="name">Nombre (A–Z)</option>
+              </select>
+            </div>
+          </div>
+          <p id="catalog-count" class="catalog-count" aria-live="polite"></p>
           <ul class="product-grid" id="catalog-grid"></ul>
+          <p id="catalog-empty" class="catalog-empty" hidden>No hay productos en esta categoría por ahora.</p>
         </div>
       </section>
     </main>

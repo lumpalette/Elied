@@ -11,3 +11,7 @@ function ProductCard(product, root = '', level = 2) {
       <a href="${href}" class="btn btn-sm">Ver detalle</a>
     </li>`;
 }
+
+function formatPrice(price) {
+  return `$${price} MXN`;
+}
