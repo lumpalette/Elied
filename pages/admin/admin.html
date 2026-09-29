@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elied - Panel de administración</title>
+    <link rel="stylesheet" href="../../shared/base.css">
+    <link rel="stylesheet" href="admin.css">
+  </head>
+  <body>
+    <site-header root="../../" active="admin"></site-header>
+    <main>
+      <section class="page-intro">
+        <div class="wrap">
+          <h1 class="page-title">Panel de administración</h1>
+          <p class="page-subtitle">Gestiona los productos de la tienda (simulado).</p>
+        </div>
+      </section>
+
+      <section class="admin-content">
+        <div class="wrap">
+          <div class="admin-stats">
+            <div class="card stat">
+              <p class="stat-label">Productos</p>
+              <p class="stat-value" id="stat-products"></p>
+            </div>
+            <div class="card stat">
+              <p class="stat-label">Categorías en uso</p>
+              <p class="stat-value" id="stat-categories"></p>
+            </div>
+            <div class="card stat">
+              <p class="stat-label">Precio promedio</p>
+              <p class="stat-value" id="stat-average"></p>
+            </div>
+          </div>
+
+          <div class="admin-toolbar">
+            <div class="field admin-search">
+              <label for="search">Buscar producto</label>
+              <input type="search" id="search" placeholder="Nombre del producto">
+            </div>
+            <button class="btn btn-primary" id="new-product-btn">Nuevo producto</button>
+          </div>
+
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th scope="col">Imagen</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Categoría</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="admin-body"></tbody>
+            </table>
+          </div>
+          <p class="admin-empty" id="admin-empty" hidden>No se encontraron productos.</p>
+          <p id="admin-status" class="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+    </main>
+    <site-footer></site-footer>
+
+    <dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title">
+      <form id="product-form">
+        <h2 id="dialog-title"></h2>
+        <div class="field">
+          <label for="field-name">Nombre</label>
+          <input type="text" id="field-name" placeholder="Nombre del producto" required>
+        </div>
+        <div class="field">
+          <label for="field-category">Categoría</label>
+          <select id="field-category" required></select>
+        </div>
+        <div class="field">
+          <label for="field-price">Precio (MXN)</label>
+          <input type="number" id="field-price" min="1" step="1" placeholder="299" required>
+        </div>
+        <div class="field">
+          <label for="field-description">Descripción (opcional)</label>
+          <textarea id="field-description" rows="3" placeholder="Si lo dejas vacío, se usa la descripción de la categoría"></textarea>
+        </div>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-sm" id="cancel-btn">Cancelar</button>
+          <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="../../components/site-header/site-header.js" defer></script>
+    <script src="../../components/site-footer/site-footer.js" defer></script>
+    <script src="../../shared/product_data.js" defer></script>
+    <script src="admin.js" defer></script>
+  </body>
+</html>

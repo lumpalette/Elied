@@ -1,0 +1,133 @@
+@import url("../../components/page-intro/page-intro.css");
+@import url("../../components/thumbnail/thumbnail.css");
+@import url("../../shared/forms.css");
+@import url("../../shared/card.css");
+
+.admin-content {
+  padding-top: 1.5rem;
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+}
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 640px) {
+  .admin-stats { grid-template-columns: 1fr; }
+}
+
+.stat-label {
+  margin-bottom: 0.4rem;
+  color: var(--olive);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+}
+
+.admin-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.admin-search {
+  flex: 1;
+  max-width: 320px;
+  margin-bottom: 0;
+}
+
+.admin-table-wrap {
+  overflow-x: auto;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.admin-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-table th {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--olive);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.admin-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+  vertical-align: middle;
+}
+
+.admin-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table .thumbnail {
+  width: 40px;
+}
+
+.admin-table .cell-name {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.cell-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.admin-empty {
+  padding: 2.5rem 0;
+  text-align: center;
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+/* Dialog */
+
+.product-dialog {
+  width: min(480px, 92vw);
+  margin: auto;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--ink);
+}
+
+.product-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.product-dialog h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
