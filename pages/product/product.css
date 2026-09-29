@@ -1,4 +1,5 @@
 @import url("../../components/thumbnail/thumbnail.css");
+@import url("../../components/product-card/product-card.css");
 
 .product-detail-content {
   padding-top: 1.5rem;
@@ -36,4 +37,23 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.9rem;
+}
+
+.product-detail-category {
+  margin-bottom: 0.6rem;
+  color: var(--olive);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.product-related {
+  padding-top: clamp(2rem, 6vw, 3.5rem);
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+  border-top: 1px solid var(--line);
+}
+
+.related-title {
+  margin-bottom: 1.75rem;
+  font-size: 1.4rem;
 }

@@ -66,6 +66,23 @@ site-header {
   border-bottom: 1px solid var(--wine-light);
 }
 
+.cart-link {
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  width: 22px;
+  height: 22px;
+  background-color: currentColor;
+  mask: url("../../res/images/icons/cart.svg") center / contain no-repeat;
+}
+
+.main-nav a.cart-link.active {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
 @media (max-width: 760px) {
   .nav-toggle {
     display: block;

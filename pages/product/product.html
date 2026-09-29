@@ -14,14 +14,21 @@
         <div class="wrap product-detail-grid" id="product-detail">
           <div class="thumbnail" id="product-thumbnail"></div>
           <div class="product-detail-info">
+            <p class="product-detail-category" id="product-category"></p>
             <h1 class="product-detail-name" id="product-name"></h1>
             <p class="product-detail-price" id="product-price"></p>
             <p class="product-detail-desc" id="product-desc"></p>
             <div class="product-detail-actions">
-              <a href="../login/login.html" class="btn btn-primary">Agregar al carrito (inicia sesión)</a>
+              <a href="../cart/cart.html" class="btn btn-primary" id="add-to-cart">Agregar al carrito</a>
               <a href="../catalog/catalog.html" class="btn btn-sm">Regresar al catálogo</a>
             </div>
           </div>
+        </div>
+      </section>
+      <section class="product-related" id="product-related" hidden>
+        <div class="wrap">
+          <h2 class="related-title">También te puede interesar</h2>
+          <ul class="product-grid" id="related-grid"></ul>
         </div>
       </section>
     </main>
@@ -30,6 +37,7 @@
     <script src="../../components/site-header/site-header.js" defer></script>
     <script src="../../components/site-footer/site-footer.js" defer></script>
     <script src="../../shared/product_data.js" defer></script>
+    <script src="../../components/product-card/product-card.js" defer></script>
     <script src="product.js" defer></script>
   </body>
 </html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elied, ropa y accesorios</title>
+    <link rel="stylesheet" href="../../shared/base.css">
+    <link rel="stylesheet" href="cart.css">
+  </head>
+  <body>
+    <site-header root="../../" active="cart"></site-header>
+    <main>
+      <section class="page-intro">
+        <div class="wrap">
+          <h1 class="page-title">Tu carrito</h1>
+          <p class="page-subtitle" id="cart-subtitle"></p>
+        </div>
+      </section>
+
+      <section class="cart-content">
+        <div class="wrap cart-grid">
+          <div class="cart-main">
+            <ul class="cart-list" id="cart-list"></ul>
+            <p class="cart-empty" id="cart-empty" hidden>
+              Tu carrito está vacío. <a href="../catalog/catalog.html">Ver catálogo</a>
+            </p>
+          </div>
+
+          <aside class="cart-summary card">
+            <h2>Resumen</h2>
+            <dl class="summary-list">
+              <div class="summary-row">
+                <dt>Subtotal</dt>
+                <dd id="summary-subtotal"></dd>
+              </div>
+              <div class="summary-row">
+                <dt>Envío</dt>
+                <dd id="summary-shipping"></dd>
+              </div>
+              <div class="summary-row summary-total">
+                <dt>Total</dt>
+                <dd id="summary-total"></dd>
+              </div>
+            </dl>
+            <p class="summary-note" id="summary-note"></p>
+            <button class="btn btn-primary btn-block" disabled>Proceder al pago (próximamente)</button>
+            <a href="../catalog/catalog.html" class="btn btn-sm btn-block cart-continue">Seguir comprando</a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="cart-suggestions" id="cart-suggestions">
+        <div class="wrap">
+          <h2 class="suggestions-title">Agrega más productos</h2>
+          <ul class="product-grid" id="suggestions-grid"></ul>
+        </div>
+      </section>
+    </main>
+    <site-footer></site-footer>
+
+    <script src="../../components/site-header/site-header.js" defer></script>
+    <script src="../../components/site-footer/site-footer.js" defer></script>
+    <script src="../../shared/product_data.js" defer></script>
+    <script src="cart.js" defer></script>
+  </body>
+</html>

@@ -17,11 +17,18 @@ class SiteHeader extends HTMLElement {
       })
       .join('');
 
+
+    const cartClass = active === 'cart' ? ' active' : '';
+    const cartItem = `
+      <li>
+        <a href="${root}pages/cart/cart.html" class="cart-link${cartClass}" aria-label="Carrito">
+          <span class="cart-icon"></span>
+        </a>
+      </li>`;
+    
     let account = `<li><a href="${root}pages/login/login.html" class="btn btn-sm">Iniciar sesión</a></li>`;
     
-    if (active === 'login') {
-      account = '';
-    } else if (active === 'profile') {
+    if (active === 'profile') {
       account = `<li><a href="${root}pages/profile/profile.html" class="active">Mi perfil</a></li>`;
     }
 
@@ -30,7 +37,7 @@ class SiteHeader extends HTMLElement {
         <div class="wrap">
           <a href="${root}index.html" class="logo">Elied</a>
           <nav class="main-nav">
-            <ul>${items}${account}</ul>
+            <ul>${items}${account}${cartItem}</ul>
           </nav>
           <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
         </div>
