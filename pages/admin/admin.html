@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elied - Panel de administración</title>
-    <link rel="stylesheet" href="../../shared/base.css">
+    <link rel="stylesheet" href="../../shared/styles/base.css">
     <link rel="stylesheet" href="admin.css">
   </head>
   <body>
@@ -17,8 +17,10 @@
         </div>
       </section>
 
-      <section class="admin-content">
-        <div class="wrap">
+      <div class="wrap admin-layout">
+        <admin-sidebar active="products" root="../../"></admin-sidebar>
+
+        <section class="admin-main">
           <div class="admin-stats">
             <div class="card stat">
               <p class="stat-label">Productos</p>
@@ -35,10 +37,7 @@
           </div>
 
           <div class="admin-toolbar">
-            <div class="field admin-search">
-              <label for="search">Buscar producto</label>
-              <input type="search" id="search" placeholder="Nombre del producto">
-            </div>
+            <search-bar class="admin-search" label="Buscar producto" placeholder="Nombre del producto"></search-bar>
             <button class="btn btn-primary" id="new-product-btn">Nuevo producto</button>
           </div>
 
@@ -58,8 +57,8 @@
           </div>
           <p class="admin-empty" id="admin-empty" hidden>No se encontraron productos.</p>
           <p id="admin-status" class="form-status" role="status" aria-live="polite"></p>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
     <site-footer></site-footer>
 
@@ -89,8 +88,13 @@
       </form>
     </dialog>
 
+    <confirm-dialog></confirm-dialog>
+
     <script src="../../components/site-header/site-header.js" defer></script>
     <script src="../../components/site-footer/site-footer.js" defer></script>
+    <script src="../../components/admin-sidebar/admin-sidebar.js" defer></script>
+    <script src="../../components/search-bar/search-bar.js" defer></script>
+    <script src="../../components/confirm-dialog/confirm-dialog.js" defer></script>
     <script src="../../shared/product_data.js" defer></script>
     <script src="admin.js" defer></script>
   </body>

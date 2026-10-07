@@ -1,6 +1,8 @@
 @import url("../../components/page-intro/page-intro.css");
 @import url("../../components/product-card/product-card.css");
-@import url("../../shared/card.css");
+@import url("../../components/quantity-selector/quantity-selector.css");
+@import url("../../components/confirm-dialog/confirm-dialog.css");
+@import url("../../shared/styles/card.css");
 
 .cart-content {
   padding-top: 1.5rem;
@@ -63,31 +65,6 @@
   flex-direction: column;
   align-items: flex-end;
   gap: 0.6rem;
-}
-
-.cart-item-qty {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid var(--line);
-  border-radius: 2px;
-}
-
-.qty-btn {
-  width: 2rem;
-  height: 2rem;
-  color: var(--ink);
-  font-size: 1.1rem;
-  transition: background 0.15s ease;
-}
-
-.qty-btn:hover {
-  background: var(--wine);
-}
-
-.qty-value {
-  min-width: 2rem;
-  text-align: center;
-  font-size: 0.9rem;
 }
 
 .cart-item-total {
@@ -162,4 +139,84 @@
 .suggestions-title {
   margin-bottom: 1.75rem;
   font-size: 1.4rem;
+}
+
+.terms {
+  margin-bottom: 1.25rem;
+}
+
+.terms-check {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.terms-check input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--olive);
+  cursor: pointer;
+}
+
+.terms-check label {
+  cursor: pointer;
+}
+
+.terms-link {
+  color: var(--olive);
+  font-size: 0.82rem;
+  text-decoration: underline;
+}
+
+.terms-link:hover {
+  color: var(--ink);
+}
+
+.terms-dialog {
+  width: min(560px, 92vw);
+  margin: auto;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--ink);
+}
+
+.terms-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.terms-dialog h2 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.terms-body {
+  max-height: 50vh;
+  margin-bottom: 1.5rem;
+  padding-right: 0.75rem;
+  overflow-y: auto;
+}
+
+.terms-body h3 {
+  margin: 1rem 0 0.3rem;
+  color: var(--olive);
+  font-size: 0.95rem;
+}
+
+.terms-body h3:first-child {
+  margin-top: 0;
+}
+
+.terms-body p {
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+}
+
+.terms-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
 }

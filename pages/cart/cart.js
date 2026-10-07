@@ -4,7 +4,6 @@ const SAMPLE_ITEMS = [
 ];
 const FREE_SHIPPING_FROM = 999;
 const SHIPPING_COST = 99;
-const MAX_QTY = 10;
 const MAX_SUGGESTIONS = 4;
 
 const cartSubtitle = document.getElementById('cart-subtitle');
@@ -16,13 +15,18 @@ const summaryTotal = document.getElementById('summary-total');
 const summaryNote = document.getElementById('summary-note');
 const suggestionsSection = document.getElementById('cart-suggestions');
 const suggestionsGrid = document.getElementById('suggestions-grid');
+const confirmDialog = document.querySelector('confirm-dialog');
 
 // The cart lives only in memory: it is rebuilt every time the page loads.
 const params = new URLSearchParams(window.location.search);
 const addedProduct = PRODUCTS.find(p => p.id === Number(params.get('add')));
+const addedQty = Math.min(
+  Math.max(parseInt(params.get('qty'), 10) || 1, 1),
+  MAX_QTY
+);
 
 let cart = addedProduct
-  ? [{ id: addedProduct.id, qty: 1 }]
+  ? [{ id: addedProduct.id, qty: addedQty }]
   : SAMPLE_ITEMS.map(item => ({ ...item }));
 
 function findProduct(id) {
@@ -44,7 +48,7 @@ function CartItem(item) {
         <p class="cart-item-price">${formatPrice(product.price)}</p>
       </div>
       <div class="cart-item-side">
-        <div class="cart-item-qty" role="group" aria-label="Cantidad de ${product.name}">
+        <div class="qty-selector" role="group" aria-label="Cantidad de ${product.name}">
           <button class="qty-btn" data-action="decrease" aria-label="Quitar una unidad">−</button>
           <span class="qty-value">${item.qty}</span>
           <button class="qty-btn" data-action="increase" aria-label="Agregar una unidad">+</button>
@@ -96,7 +100,7 @@ function render() {
   suggestionsSection.hidden = suggestions.length === 0;
 }
 
-cartList.addEventListener('click', e => {
+cartList.addEventListener('click', async e => {
   const button = e.target.closest('button[data-action]');
   if (!button) return;
 
@@ -110,9 +114,17 @@ cartList.addEventListener('click', e => {
     case 'decrease':
       item.qty = Math.max(item.qty - 1, 1);
       break;
-    case 'remove':
+    case 'remove': {
+      const confirmed = await confirmDialog.ask({
+        title: '¿Eliminar producto?',
+        message: `Se quitará "${findProduct(id).name}" de tu carrito.`,
+        confirmLabel: 'Eliminar',
+      });
+      if (!confirmed) return;
+
       cart = cart.filter(i => i.id !== id);
       break;
+    }
   }
 
   render();
@@ -127,5 +139,11 @@ suggestionsGrid.addEventListener('click', e => {
 
   render();
 });
+
+const termsDialog = document.getElementById('terms-dialog');
+const termsCheckbox = document.getElementById('terms-checkbox');
+
+document.getElementById('terms-open').addEventListener('click', () => termsDialog.showModal());
+document.getElementById('terms-close').addEventListener('click', () => { termsDialog.close(); });
 
 render();

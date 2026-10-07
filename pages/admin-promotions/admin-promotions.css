@@ -1,0 +1,9 @@
+@import url("../../components/page-intro/page-intro.css");
+@import url("../../components/admin-sidebar/admin-sidebar.css");
+@import url("../../shared/styles/card.css");
+
+.admin-placeholder {
+  margin-top: 0.75rem;
+  color: var(--ink-muted);
+  font-style: italic;
+}

@@ -1,0 +1,9 @@
+@import url("../../shared/styles/forms.css");
+
+search-bar {
+  display: block;
+}
+
+.field.search-bar {
+  margin-bottom: 0;
+}

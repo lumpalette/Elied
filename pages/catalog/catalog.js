@@ -3,16 +3,33 @@ const catalogCount = document.getElementById('catalog-count');
 const catalogEmpty = document.getElementById('catalog-empty');
 const chips = document.querySelectorAll('.chip');
 const sortSelect = document.getElementById('sort');
+const searchBar = document.querySelector('search-bar');
 
 const state = {
   category: 'all',
   sort: 'default',
+  query: '',
 };
 
+function normalize(text) {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+}
+
 function getVisibleProducts() {
-  const products = PRODUCTS.filter(
-    p => state.category === 'all' || p.category === state.category
-  );
+  const query = normalize(state.query.trim());
+
+  const products = PRODUCTS.filter(p => {
+    const matchesCategory = state.category === 'all' || p.category === state.category;
+    const matchesQuery =
+      query === '' ||
+      normalize(p.name).includes(query) ||
+      normalize(CATEGORY_LABELS[p.category]).includes(query);
+
+    return matchesCategory && matchesQuery;
+  });
 
   switch (state.sort) {
     case 'price-asc':
@@ -59,6 +76,11 @@ chips.forEach(chip => {
 
 sortSelect.addEventListener('change', () => {
   state.sort = sortSelect.value;
+  render();
+});
+
+searchBar.addEventListener('search-input', e => {
+  state.query = e.detail;
   render();
 });
 

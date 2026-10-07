@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elied - Pedidos</title>
+    <link rel="stylesheet" href="../../shared/styles/base.css">
+    <link rel="stylesheet" href="admin-orders.css">
+  </head>
+  <body>
+    <site-header root="../../" active="admin"></site-header>
+    <main>
+      <section class="page-intro">
+        <div class="wrap">
+          <h1 class="page-title">Panel de administración</h1>
+          <p class="page-subtitle">Gestiona los pedidos de la tienda (simulado).</p>
+        </div>
+      </section>
+
+      <div class="wrap admin-layout">
+        <admin-sidebar active="orders" root="../../"></admin-sidebar>
+        <section class="admin-main">
+          <div class="card">
+            <h2>Pedidos</h2>
+            <p class="admin-placeholder">Próximamente</p>
+          </div>
+        </section>
+      </div>
+    </main>
+    <site-footer></site-footer>
+
+    <script src="../../components/site-header/site-header.js" defer></script>
+    <script src="../../components/site-footer/site-footer.js" defer></script>
+    <script src="../../components/admin-sidebar/admin-sidebar.js" defer></script>
+  </body>
+</html>

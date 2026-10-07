@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "Fraunces";
-  src: url("../res/fonts/Fraunces.ttf") format("truetype");
+  src: url("../../res/fonts/Fraunces.ttf") format("truetype");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: "Fraunces";
-  src: url("../res/fonts/Fraunces-italic.ttf") format("truetype");
+  src: url("../../res/fonts/Fraunces-italic.ttf") format("truetype");
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
@@ -18,7 +18,7 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("../res/fonts/Inter.ttf") format("truetype");
+  src: url("../../res/fonts/Inter.ttf") format("truetype");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;

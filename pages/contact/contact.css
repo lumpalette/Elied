@@ -1,6 +1,6 @@
 @import url("../../components/page-intro/page-intro.css");
-@import url("../../shared/forms.css");
-@import url("../../shared/card.css");
+@import url("../../shared/styles/forms.css");
+@import url("../../shared/styles/card.css");
 
 .contact-content {
   padding-top: 1.5rem;

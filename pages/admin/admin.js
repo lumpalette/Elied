@@ -1,7 +1,8 @@
 const adminBody = document.getElementById('admin-body');
 const adminEmpty = document.getElementById('admin-empty');
 const adminStatus = document.getElementById('admin-status');
-const searchInput = document.getElementById('search');
+const searchBar = document.querySelector('search-bar');
+const confirmDialog = document.querySelector('confirm-dialog');
 const newProductBtn = document.getElementById('new-product-btn');
 
 const statProducts = document.getElementById('stat-products');
@@ -22,6 +23,7 @@ let products = PRODUCTS.map(p => ({ ...p }));
 let nextId = Math.max(...products.map(p => p.id)) + 1;
 let editingId = null;
 let statusTimer = null;
+let query = '';
 
 fieldCategory.innerHTML = Object.entries(CATEGORY_LABELS)
   .map(([value, label]) => `<option value="${value}">${label}</option>`)
@@ -69,8 +71,8 @@ function renderStats() {
 }
 
 function render() {
-  const query = searchInput.value.trim().toLowerCase();
-  const visible = products.filter(p => p.name.toLowerCase().includes(query));
+  const term = query.trim().toLowerCase();
+  const visible = products.filter(p => p.name.toLowerCase().includes(term));
 
   adminBody.innerHTML = visible.map(ProductRow).join('');
   adminEmpty.hidden = visible.length > 0;
@@ -92,7 +94,11 @@ function openDialog(product) {
 
 newProductBtn.addEventListener('click', () => openDialog(null));
 cancelBtn.addEventListener('click', () => dialog.close());
-searchInput.addEventListener('input', render);
+
+searchBar.addEventListener('search-input', e => {
+  query = e.detail;
+  render();
+});
 
 form.addEventListener('submit', e => {
   e.preventDefault();
@@ -108,7 +114,7 @@ form.addEventListener('submit', e => {
     const product = { id: nextId++, tone: Math.ceil(Math.random() * 8), ...data };
     if (description) product.description = description;
     products.push(product);
-    showStatus('Producto agregado (no)');
+    showStatus('Producto agregado (simulado)');
   } else {
     const product = products.find(p => p.id === editingId);
     Object.assign(product, data);
@@ -117,14 +123,14 @@ form.addEventListener('submit', e => {
     } else {
       delete product.description;
     }
-    showStatus('Producto actualizado (tampoco)');
+    showStatus('Producto actualizado (simulado)');
   }
 
   dialog.close();
   render();
 });
 
-adminBody.addEventListener('click', e => {
+adminBody.addEventListener('click', async e => {
   const button = e.target.closest('button[data-action]');
   if (!button) return;
 
@@ -134,11 +140,16 @@ adminBody.addEventListener('click', e => {
   if (button.dataset.action === 'edit') {
     openDialog(product);
   } else if (button.dataset.action === 'delete') {
-    if (confirm(`¿Eliminar "${product.name}"?`)) {
-      products = products.filter(p => p.id !== id);
-      showStatus('Producto eliminado (menos)');
-      render();
-    }
+    const confirmed = await confirmDialog.ask({
+      title: '¿Eliminar producto?',
+      message: `Se eliminará "${product.name}" del panel (simulado).`,
+      confirmLabel: 'Eliminar',
+    });
+    if (!confirmed) return;
+
+    products = products.filter(p => p.id !== id);
+    showStatus('Producto eliminado (simulado)');
+    render();
   }
 });
 

@@ -1,0 +1,24 @@
+.qty-selector {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+}
+
+.qty-btn {
+  width: 2rem;
+  height: 2rem;
+  color: var(--ink);
+  font-size: 1.1rem;
+  transition: background 0.15s ease;
+}
+
+.qty-btn:hover {
+  background: var(--wine);
+}
+
+.qty-value {
+  min-width: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+}

@@ -1,5 +1,6 @@
 @import url("../../components/thumbnail/thumbnail.css");
 @import url("../../components/product-card/product-card.css");
+@import url("../../components/quantity-selector/quantity-selector.css");
 
 .product-detail-content {
   padding-top: 1.5rem;
@@ -15,6 +16,14 @@
 
 @media (max-width: 760px) {
   .product-detail-grid { grid-template-columns: 1fr; }
+}
+
+.product-detail-category {
+  margin-bottom: 0.6rem;
+  color: var(--olive);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .product-detail-name {
@@ -33,18 +42,22 @@
   color: var(--ink-muted);
 }
 
+.product-detail-qty {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.qty-label {
+  color: var(--olive);
+  font-size: 0.85rem;
+}
+
 .product-detail-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.9rem;
-}
-
-.product-detail-category {
-  margin-bottom: 0.6rem;
-  color: var(--olive);
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 .product-related {

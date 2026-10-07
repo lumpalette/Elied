@@ -1,6 +1,6 @@
 @import url("../../components/page-intro/page-intro.css");
 @import url("../../components/data-list/data-list.css");
-@import url("../../shared/card.css");
+@import url("../../shared/styles/card.css");
 
 .about-content {
   padding-top: 1rem;

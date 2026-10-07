@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elied, ropa y accesorios</title>
-    <link rel="stylesheet" href="../../shared/base.css">
+    <title>Elied - Carrito</title>
+    <link rel="stylesheet" href="../../shared/styles/base.css">
     <link rel="stylesheet" href="cart.css">
   </head>
   <body>
@@ -43,6 +43,14 @@
               </div>
             </dl>
             <p class="summary-note" id="summary-note"></p>
+
+            <div class="terms">
+              <div class="terms-check">
+                <input type="checkbox" id="terms-checkbox">
+                <label for="terms-checkbox">Acepto los <button type="button" class="terms-link" id="terms-open">términos y condiciones</button></label>
+              </div>
+            </div>
+
             <button class="btn btn-primary btn-block" disabled>Proceder al pago (próximamente)</button>
             <a href="../catalog/catalog.html" class="btn btn-sm btn-block cart-continue">Seguir comprando</a>
           </aside>
@@ -57,9 +65,34 @@
       </section>
     </main>
     <site-footer></site-footer>
+    <confirm-dialog></confirm-dialog>
+
+    <dialog class="terms-dialog" id="terms-dialog" aria-labelledby="terms-title">
+      <h2 id="terms-title">Términos y condiciones</h2>
+      <div class="terms-body">
+        <h3>1. Uso del sitio</h3>
+        <p>Al realizar una compra en Elied aceptas estos términos. Debes proporcionar información verdadera y completa al registrarte y al hacer tus pedidos.</p>
+
+        <h3>2. Precios y disponibilidad</h3>
+        <p>Los precios están expresados en pesos mexicanos (MXN) e incluyen impuestos. Nos reservamos el derecho de modificar precios y de retirar productos sin previo aviso, sin afectar pedidos ya confirmados.</p>
+
+        <h3>3. Envíos</h3>
+        <p>Los pedidos con subtotal de $999 MXN o más tienen envío gratis. En compras menores se cobra un costo de envío de $99 MXN. Los tiempos de entrega son estimados y pueden variar.</p>
+
+        <h3>4. Cambios y devoluciones</h3>
+        <p>Puedes solicitar un cambio o devolución dentro de los 15 días posteriores a la entrega, siempre que la prenda esté sin uso, con etiquetas y en su empaque original.</p>
+
+        <h3>5. Privacidad</h3>
+        <p>Tus datos personales se usan únicamente para procesar tus pedidos y comunicarnos contigo. No se comparten con terceros ajenos a la operación de la tienda.</p>
+      </div>
+      <div class="terms-actions">
+        <button type="button" class="btn btn-sm btn-primary" id="terms-close">Cerrar</button>
+      </div>
+    </dialog>
 
     <script src="../../components/site-header/site-header.js" defer></script>
     <script src="../../components/site-footer/site-footer.js" defer></script>
+    <script src="../../components/confirm-dialog/confirm-dialog.js" defer></script>
     <script src="../../shared/product_data.js" defer></script>
     <script src="cart.js" defer></script>
   </body>

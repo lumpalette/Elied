@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elied, ropa y accesorios</title>
-    <link rel="stylesheet" href="../../shared/base.css">
+    <link rel="stylesheet" href="../../shared/styles/base.css">
     <link rel="stylesheet" href="catalog.css">
   </head>
   <body>
@@ -19,6 +19,8 @@
       <section class="catalog-content">
         <div class="wrap">
           <div class="catalog-toolbar">
+            <search-bar class="catalog-search" label="Buscar" placeholder="Nombre o categoría"></search-bar>
+
             <div class="filter-chips" role="group" aria-label="Filtrar por categoría">
               <button class="chip is-active" data-category="all" aria-pressed="true">Todos</button>
               <button class="chip" data-category="tshirts" aria-pressed="false">Playeras</button>
@@ -27,6 +29,7 @@
               <button class="chip" data-category="dresses" aria-pressed="false">Vestidos</button>
               <button class="chip" data-category="accessories" aria-pressed="false">Accesorios</button>
             </div>
+
             <div class="field catalog-sort">
               <label for="sort">Ordenar por</label>
               <select id="sort">
@@ -39,7 +42,7 @@
           </div>
           <p id="catalog-count" class="catalog-count" aria-live="polite"></p>
           <ul class="product-grid" id="catalog-grid"></ul>
-          <p id="catalog-empty" class="catalog-empty" hidden>No hay productos en esta categoría por ahora.</p>
+          <p id="catalog-empty" class="catalog-empty" hidden>No se encontraron productos con esos filtros.</p>
         </div>
       </section>
     </main>
@@ -49,6 +52,7 @@
     <script src="../../components/site-footer/site-footer.js" defer></script>
     <script src="../../shared/product_data.js" defer></script>
     <script src="../../components/product-card/product-card.js" defer></script>
+    <script src="../../components/search-bar/search-bar.js" defer></script>
     <script src="catalog.js" defer></script>
   </body>
 </html>

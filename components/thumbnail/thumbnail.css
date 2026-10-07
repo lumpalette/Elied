@@ -1,4 +1,5 @@
 .thumbnail {
+  position: relative;
   aspect-ratio: 3 / 4;
   border-radius: 2px;
   background: linear-gradient(155deg, var(--line), var(--bg));

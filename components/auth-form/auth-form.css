@@ -1,5 +1,5 @@
-@import url("../../shared/forms.css");
-@import url("../../shared/card.css");
+@import url("../../shared/styles/forms.css");
+@import url("../../shared/styles/card.css");
 
 .auth-content {
   padding-top: 1.5rem;
