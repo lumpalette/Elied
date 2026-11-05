@@ -8,6 +8,7 @@ class SiteHeader extends HTMLElement {
       { id: 'catalog', label: 'Catálogo', href: 'pages/catalog/catalog.html' },
       { id: 'promotions', label: 'Promociones', href: 'pages/promotions/promotions.html' },
       { id: 'season', label: 'Destacados', href: 'pages/campaign/campaign.html' },
+      { id: 'community', label: 'Comunidad', href: 'pages/community/community.html' },
       { id: 'about', label: 'Nosotros', href: 'pages/about/about.html' },
       { id: 'contact', label: 'Contacto', href: 'pages/contact/contact.html' },
     ];
