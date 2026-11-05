@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elied - Subasta</title>
+    <link rel="stylesheet" href="../../shared/styles/base.css">
+    <link rel="stylesheet" href="auction.css">
+  </head>
+  <body>
+    <site-header root="../../" active="auction"></site-header>
+    <main>
+      <section class="auction-content">
+        <div class="wrap auction-grid">
+          <div class="thumbnail" id="auction-thumbnail"></div>
+
+          <div class="auction-info">
+            <p class="auction-tag">Subasta</p>
+            <p class="auction-category" id="auction-category"></p>
+            <h1 class="auction-name" id="auction-name"></h1>
+            <p class="auction-desc" id="auction-desc"></p>
+
+            <div class="auction-timer card">
+              <p class="auction-label" id="timer-label">Termina en</p>
+              <p class="auction-timer-value" id="auction-timer" role="timer" aria-labelledby="timer-label">02:00:00</p>
+            </div>
+
+            <div class="auction-stats">
+              <div class="card stat">
+                <p class="auction-label">Oferta actual</p>
+                <p class="stat-value" id="auction-current"></p>
+              </div>
+              <div class="card stat">
+                <p class="auction-label">Ofertas</p>
+                <p class="stat-value" id="auction-count"></p>
+              </div>
+            </div>
+
+            <form id="bid-form" class="bid-form">
+              <div class="field">
+                <label for="bid-input">Tu oferta (MXN)</label>
+                <div class="bid-row">
+                  <input type="number" id="bid-input" step="1" required>
+                  <button type="submit" class="btn btn-primary" id="bid-submit">Ofertar</button>
+                </div>
+              </div>
+              <p id="bid-status" class="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="auction-bids">
+        <div class="wrap">
+          <h2 class="bids-title">Ofertas</h2>
+          <ul class="bid-list" id="bid-list"></ul>
+        </div>
+      </section>
+    </main>
+    <site-footer></site-footer>
+
+    <script src="../../components/site-header/site-header.js" defer></script>
+    <script src="../../components/site-footer/site-footer.js" defer></script>
+    <script src="../../shared/product_data.js" defer></script>
+    <script src="auction.js" defer></script>
+  </body>
+</html>

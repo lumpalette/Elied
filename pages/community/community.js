@@ -9,10 +9,10 @@ const fieldRating = document.getElementById('comment-rating');
 const fieldText = document.getElementById('comment-text');
 
 let comments = [
-  { author: 'Persona A', rating: 5, date: 'Hace 2 días', text: 'Comentario de ejemplo A.' },
-  { author: 'Persona B', rating: 4, date: 'Hace 5 días', text: 'Comentario de ejemplo B.' },
-  { author: 'Persona C', rating: 5, date: 'Hace 1 semana', text: 'Comentario de ejemplo C.' },
-  { author: 'micui', rating: 3, date: 'Hace 2 semanas', text: 'poeoquito' },
+  { author: 'Persona A', rating: 5, date: 'Hace 2 días', text: 'Comentario A.' },
+  { author: 'Persona B', rating: 4, date: 'Hace 5 días', text: 'Comentario B.' },
+  { author: 'Persona C', rating: 5, date: 'Hace 1 semana', text: 'Comentario C.' },
+  { author: 'Poeoquito', rating: 3, date: 'Hace 2 semanas', text: 'poeoquito' },
 ];
 
 function render() {

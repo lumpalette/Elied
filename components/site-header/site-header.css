@@ -83,6 +83,100 @@ site-header {
   border-bottom: none;
 }
 
+/* Desplegable "Explorar" */
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--ink-muted);
+  font-size: 0.94rem;
+  transition: color 0.15s ease;
+}
+
+.nav-dropdown-toggle:hover,
+.nav-dropdown.is-open .nav-dropdown-toggle,
+.nav-dropdown.has-active .nav-dropdown-toggle {
+  color: var(--ink);
+}
+
+.nav-dropdown.has-active .nav-dropdown-toggle {
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--wine-light);
+}
+
+.nav-caret {
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-top: -0.2rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.15s ease;
+}
+
+.nav-dropdown.is-open .nav-caret {
+  margin-top: 0.15rem;
+  transform: rotate(-135deg);
+}
+
+.main-nav .nav-submenu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: -1rem;
+  z-index: 20;
+  min-width: 190px;
+  flex-direction: column;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 0;
+  padding: 0.5rem 0;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+/* Puente invisible para que el menú no se cierre al mover el cursor. */
+.nav-submenu::before {
+  content: "";
+  position: absolute;
+  top: -0.6rem;
+  left: 0;
+  right: 0;
+  height: 0.6rem;
+}
+
+.nav-dropdown.is-open .nav-submenu {
+  display: flex;
+}
+
+@media (min-width: 761px) and (hover: hover) {
+  .nav-dropdown:hover .nav-submenu,
+  .nav-dropdown:focus-within .nav-submenu {
+    display: flex;
+  }
+}
+
+.main-nav .nav-submenu a {
+  display: block;
+  padding: 0.55rem 1.25rem;
+}
+
+.main-nav .nav-submenu a:not(.btn):hover {
+  background: var(--bg);
+}
+
+.main-nav .nav-submenu a.active {
+  padding-bottom: 0.55rem;
+  border-bottom: none;
+  box-shadow: inset 2px 0 0 var(--wine-light);
+}
+
 @media (max-width: 760px) {
   .nav-toggle {
     display: block;
@@ -102,5 +196,36 @@ site-header {
     align-items: flex-start;
     gap: 1rem;
     padding-top: 1rem;
+  }
+
+  /* En móvil el submenú se despliega dentro de la lista, sin caja flotante. */
+  .main-nav .nav-submenu {
+    position: static;
+    min-width: 0;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+    padding: 0 0 0 1rem;
+    background: none;
+    border: none;
+    border-left: 1px solid var(--line);
+    border-radius: 0;
+  }
+
+  .nav-submenu::before {
+    display: none;
+  }
+
+  .main-nav .nav-submenu a {
+    padding: 0;
+  }
+
+  .main-nav .nav-submenu a:not(.btn):hover {
+    background: none;
+  }
+
+  .main-nav .nav-submenu a.active {
+    padding-bottom: 0;
+    box-shadow: none;
+    border-bottom: 1px solid var(--wine-light);
   }
 }
