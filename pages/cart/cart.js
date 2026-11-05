@@ -1,6 +1,7 @@
 const SAMPLE_ITEMS = [
   { id: 1, qty: 1 },
   { id: 8, qty: 2 },
+  { id: 2, qty: 2 },
 ];
 const FREE_SHIPPING_FROM = 999;
 const SHIPPING_COST = 99;
@@ -10,12 +11,16 @@ const cartSubtitle = document.getElementById('cart-subtitle');
 const cartList = document.getElementById('cart-list');
 const cartEmpty = document.getElementById('cart-empty');
 const summarySubtotal = document.getElementById('summary-subtotal');
+const summaryDiscountRow = document.getElementById('summary-discount-row');
+const summaryDiscountCode = document.getElementById('summary-discount-code');
+const summaryDiscount = document.getElementById('summary-discount');
 const summaryShipping = document.getElementById('summary-shipping');
 const summaryTotal = document.getElementById('summary-total');
 const summaryNote = document.getElementById('summary-note');
 const suggestionsSection = document.getElementById('cart-suggestions');
 const suggestionsGrid = document.getElementById('suggestions-grid');
 const confirmDialog = document.querySelector('confirm-dialog');
+const promoForm = document.querySelector('promo-form');
 
 // The cart lives only in memory: it is rebuilt every time the page loads.
 const params = new URLSearchParams(window.location.search);
@@ -29,8 +34,53 @@ let cart = addedProduct
   ? [{ id: addedProduct.id, qty: addedQty }]
   : SAMPLE_ITEMS.map(item => ({ ...item }));
 
+// Código de descuento aplicado (null = ninguno). Ver PROMOS en product_data.js.
+let promoCode = null;
+
 function findProduct(id) {
   return PRODUCTS.find(p => p.id === id);
+}
+
+// Cuánto se descuenta del subtotal con una promoción (0 si no aplica).
+function calcDiscount(promo) {
+  const eligible = cart.filter(
+    item => !promo.category || findProduct(item.id).category === promo.category
+  );
+
+  switch (promo.type) {
+    case 'percent': {
+      const base = eligible.reduce(
+        (sum, item) => sum + findProduct(item.id).price * item.qty,
+        0
+      );
+      return Math.round(base * promo.value / 100);
+    }
+    case 'bogo':
+      return eligible.reduce(
+        (sum, item) => sum + Math.floor(item.qty / 2) * findProduct(item.id).price,
+        0
+      );
+    default:
+      return 0;
+  }
+}
+
+function applyPromo(rawCode) {
+  const code = rawCode.trim().toUpperCase();
+  const promo = PROMOS[code];
+
+  if (!promo) {
+    promoForm.setStatus('Código no válido. Revisa que esté bien escrito.');
+    return;
+  }
+  if (promo.type !== 'shipping' && calcDiscount(promo) === 0) {
+    promoForm.setStatus('Este código no aplica a los productos de tu carrito.');
+    return;
+  }
+
+  promoCode = code;
+  promoForm.setStatus('Descuento aplicado (simulado)');
+  render();
 }
 
 function CartItem(item) {
@@ -77,7 +127,12 @@ function render() {
     (sum, item) => sum + findProduct(item.id).price * item.qty,
     0
   );
-  const shipping = subtotal >= FREE_SHIPPING_FROM || subtotal === 0 ? 0 : SHIPPING_COST;
+
+  const promo = PROMOS[promoCode];
+  const discount = promo ? calcDiscount(promo) : 0;
+  const freeShippingPromo = promo && promo.type === 'shipping';
+  const shipping =
+    freeShippingPromo || subtotal >= FREE_SHIPPING_FROM || subtotal === 0 ? 0 : SHIPPING_COST;
 
   cartList.innerHTML = cart.map(CartItem).join('');
   cartEmpty.hidden = cart.length > 0;
@@ -86,9 +141,12 @@ function render() {
     units === 0 ? '' : `${units} ${units === 1 ? 'producto' : 'productos'} en tu carrito`;
 
   summarySubtotal.textContent = formatPrice(subtotal);
+  summaryDiscountRow.hidden = discount === 0;
+  summaryDiscountCode.textContent = promoCode;
+  summaryDiscount.textContent = `−${formatPrice(discount)}`;
   summaryShipping.textContent =
     subtotal === 0 ? '—' : shipping === 0 ? 'Gratis' : formatPrice(shipping);
-  summaryTotal.textContent = formatPrice(subtotal + shipping);
+  summaryTotal.textContent = formatPrice(subtotal - discount + shipping);
   summaryNote.textContent =
     shipping > 0 ? `Te faltan ${formatPrice(FREE_SHIPPING_FROM - subtotal)} para envío gratis.` : '';
 
@@ -140,6 +198,8 @@ suggestionsGrid.addEventListener('click', e => {
   render();
 });
 
+promoForm.addEventListener('promo-apply', e => applyPromo(e.detail));
+
 const termsDialog = document.getElementById('terms-dialog');
 const termsCheckbox = document.getElementById('terms-checkbox');
 
@@ -147,3 +207,6 @@ document.getElementById('terms-open').addEventListener('click', () => termsDialo
 document.getElementById('terms-close').addEventListener('click', () => { termsDialog.close(); });
 
 render();
+
+// Llegó desde Promociones: cart.html?promo=CODIGO
+if (params.get('promo')) applyPromo(params.get('promo'));

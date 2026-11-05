@@ -1,0 +1,29 @@
+@import url("../../shared/styles/forms.css");
+
+promo-form {
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.promo-form .field {
+  margin-bottom: 0;
+}
+
+.promo-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.promo-row input {
+  flex: 1;
+  min-width: 0;
+  text-transform: uppercase;
+}
+
+.promo-row input::placeholder {
+  text-transform: none;
+}
+
+.promo-form .form-status {
+  margin-top: 0.6rem;
+}

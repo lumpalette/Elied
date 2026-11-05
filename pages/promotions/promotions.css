@@ -1,0 +1,25 @@
+@import url("../../components/page-intro/page-intro.css");
+@import url("../../components/promo-card/promo-card.css");
+
+.promos-content {
+  padding-top: 1.5rem;
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+}
+
+.promo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+
+@media (max-width: 640px) {
+  .promo-grid { grid-template-columns: 1fr; }
+}
+
+.promos-help {
+  max-width: 480px;
+  margin: 2.5rem auto 0;
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+}

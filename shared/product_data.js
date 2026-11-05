@@ -21,6 +21,44 @@ const TAG_LABELS = {
 
 const MAX_QTY = 10
 
+// Promociones activas. La clave es el código de descuento.
+// type: 'percent' (value = %), 'bogo' (2x1) o 'shipping' (envío gratis).
+// category (opcional): limita la promoción a una categoría.
+const PROMOS = {
+  ELIED10: {
+    tag: 'Toda la tienda',
+    title: '10% de descuento',
+    description: 'Obtén 10% menos en todos los productos de tu carrito.',
+    note: 'Válido en toda la tienda.',
+    type: 'percent',
+    value: 10,
+  },
+  PLAYERA2X1: {
+    tag: '2x1',
+    title: '2x1 en playeras',
+    description: 'Lleva dos playeras del mismo modelo y paga solo una.',
+    note: 'Se descuenta una playera por cada par del mismo modelo.',
+    type: 'bogo',
+    category: 'tshirts',
+  },
+  ACCESORIOS15: {
+    tag: 'Accesorios',
+    title: '15% en accesorios',
+    description: 'Anillos, bolsos, gafas y cinturones con 15% menos.',
+    note: 'Solo aplica a productos de la categoría Accesorios.',
+    type: 'percent',
+    value: 15,
+    category: 'accessories',
+  },
+  ENVIOGRATIS: {
+    tag: 'Envío',
+    title: 'Envío gratis',
+    description: 'Sin importar el monto de tu compra, el envío corre por nuestra cuenta.',
+    note: 'Normalmente el envío es gratis a partir de $999 MXN.',
+    type: 'shipping',
+  },
+};
+
 const PRODUCTS = [
   { id: 1,  name: 'Blusa de Seda Estampada',    price: 549,  tone: 1, category: 'blouses' },
   { id: 2,  name: 'Playera Cuello Redondo',     price: 249,  tone: 2, category: 'tshirts', tag: 'new' },

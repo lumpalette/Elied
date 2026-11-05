@@ -2,6 +2,7 @@
 @import url("../../components/product-card/product-card.css");
 @import url("../../components/quantity-selector/quantity-selector.css");
 @import url("../../components/confirm-dialog/confirm-dialog.css");
+@import url("../../components/promo-form/promo-form.css");
 @import url("../../shared/styles/card.css");
 
 .cart-content {
@@ -108,6 +109,15 @@
   padding: 0.55rem 0;
   color: var(--ink-muted);
   font-size: 0.95rem;
+}
+
+/* display: flex anula el atributo hidden, así que se restablece aquí. */
+.summary-row[hidden] {
+  display: none;
+}
+
+.summary-discount {
+  color: var(--olive);
 }
 
 .summary-total {

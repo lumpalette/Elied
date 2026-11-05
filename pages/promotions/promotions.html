@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elied - Promociones</title>
+    <link rel="stylesheet" href="../../shared/styles/base.css">
+    <link rel="stylesheet" href="promotions.css">
+  </head>
+  <body>
+    <site-header root="../../" active="promotions"></site-header>
+    <main>
+      <section class="page-intro">
+        <div class="wrap">
+          <h1 class="page-title">Promociones</h1>
+          <p class="page-subtitle">Ofertas activas para tu próxima compra.</p>
+        </div>
+      </section>
+
+      <section class="promos-content">
+        <div class="wrap">
+          <div class="promo-grid">
+            <promo-card code="ELIED10"></promo-card>
+            <promo-card code="PLAYERA2X1"></promo-card>
+            <promo-card code="ACCESORIOS15"></promo-card>
+            <promo-card code="ENVIOGRATIS"></promo-card>
+          </div>
+          <p class="promos-help">
+            Toca <strong>Aplicar</strong> y el código se cargará en tu carrito,
+            o escríbelo tú mismo en el resumen de compra.
+          </p>
+        </div>
+      </section>
+    </main>
+    <site-footer></site-footer>
+
+    <script src="../../components/site-header/site-header.js" defer></script>
+    <script src="../../components/site-footer/site-footer.js" defer></script>
+    <script src="../../shared/product_data.js" defer></script>
+    <script src="../../components/promo-card/promo-card.js" defer></script>
+  </body>
+</html>

@@ -33,6 +33,10 @@
                 <dt>Subtotal</dt>
                 <dd id="summary-subtotal"></dd>
               </div>
+              <div class="summary-row summary-discount" id="summary-discount-row" hidden>
+                <dt>Descuento (<span id="summary-discount-code"></span>)</dt>
+                <dd id="summary-discount"></dd>
+              </div>
               <div class="summary-row">
                 <dt>Envío</dt>
                 <dd id="summary-shipping"></dd>
@@ -43,6 +47,8 @@
               </div>
             </dl>
             <p class="summary-note" id="summary-note"></p>
+
+            <promo-form></promo-form>
 
             <div class="terms">
               <div class="terms-check">
@@ -93,6 +99,7 @@
     <script src="../../components/site-header/site-header.js" defer></script>
     <script src="../../components/site-footer/site-footer.js" defer></script>
     <script src="../../components/confirm-dialog/confirm-dialog.js" defer></script>
+    <script src="../../components/promo-form/promo-form.js" defer></script>
     <script src="../../shared/product_data.js" defer></script>
     <script src="cart.js" defer></script>
   </body>
