@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elied - Publica tu producto</title>
+    <link rel="stylesheet" href="../../shared/styles/base.css">
+    <link rel="stylesheet" href="publish.css">
+  </head>
+  <body>
+    <site-header root="../../" active="profile"></site-header>
+    <main>
+      <section class="page-intro">
+        <div class="wrap">
+          <h1 class="page-title">Publica tu producto</h1>
+          <p class="page-subtitle">Vende tus propias prendas y accesorios dentro de Elied.</p>
+        </div>
+      </section>
+
+      <section class="publish-content">
+        <div class="wrap publish-wrap">
+          <form id="publish-form" class="card">
+            <div class="field">
+              <label for="product-name">Nombre del producto*</label>
+              <input type="text" id="product-name" name="nombre" placeholder="Ej. Chamarra de mezclilla" required>
+            </div>
+            <div class="field">
+              <label for="product-price">Precio (MXN)*</label>
+              <input type="number" id="product-price" name="precio" min="1" step="1" placeholder="299" required>
+            </div>
+            <div class="field">
+              <label for="product-description">Descripción*</label>
+              <textarea id="product-description" name="descripcion" rows="4" placeholder="Cuenta en qué estado está, talla, material..." required></textarea>
+            </div>
+            <div class="field">
+              <label for="product-photo">Foto*</label>
+              <input type="file" id="product-photo" name="foto" accept="image/*">
+              <p class="field-hint">(la imagen no se guarda, upsi)</p>
+            </div>
+            <div class="publish-actions">
+              <button type="submit" class="btn btn-primary">Publicar</button>
+              <a href="../profile/profile.html" class="btn btn-sm">Cancelar</a>
+            </div>
+            <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+    <site-footer></site-footer>
+
+    <script src="../../components/site-header/site-header.js" defer></script>
+    <script src="../../components/site-footer/site-footer.js" defer></script>
+    <script src="publish.js" defer></script>
+  </body>
+</html>

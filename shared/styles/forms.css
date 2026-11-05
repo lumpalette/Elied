@@ -18,7 +18,7 @@
   padding: 0.7rem 0.85rem;
   background: var(--bg);
   border: 1px solid var(--line);
-  border-radius: 2px;
+  border-radius: 8px;
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 0.95rem;

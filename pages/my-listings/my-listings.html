@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elied - Mis publicaciones</title>
+    <link rel="stylesheet" href="../../shared/styles/base.css">
+    <link rel="stylesheet" href="my-listings.css">
+  </head>
+  <body>
+    <site-header root="../../" active="profile"></site-header>
+    <main>
+      <section class="page-intro">
+        <div class="wrap">
+          <h1 class="page-title">Mis publicaciones</h1>
+          <p class="page-subtitle">Los productos que has puesto a la venta.</p>
+        </div>
+      </section>
+
+      <section class="listings-content">
+        <div class="wrap listings-wrap">
+          <div class="listings-toolbar">
+            <p id="listings-count" class="listings-count" aria-live="polite"></p>
+            <a href="../publish/publish.html" class="btn btn-primary">Publicar producto</a>
+          </div>
+
+          <p id="listings-status" class="form-status" role="status" aria-live="polite"></p>
+
+          <ul class="listing-list" id="listing-list"></ul>
+          <p class="listings-empty" id="listings-empty" hidden>
+            Aún no has publicado nada. <a href="../publish/publish.html">Publica tu primer producto</a>
+          </p>
+        </div>
+      </section>
+    </main>
+    <site-footer></site-footer>
+
+    <dialog class="listing-dialog" id="listing-dialog" aria-labelledby="dialog-title">
+      <form id="listing-form">
+        <h2 id="dialog-title">Editar publicación</h2>
+        <div class="field">
+          <label for="field-name">Nombre</label>
+          <input type="text" id="field-name" required>
+        </div>
+        <div class="field">
+          <label for="field-price">Precio (MXN)</label>
+          <input type="number" id="field-price" min="1" step="1" required>
+        </div>
+        <div class="field">
+          <label for="field-description">Descripción</label>
+          <textarea id="field-description" rows="3" required></textarea>
+        </div>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-sm" id="cancel-btn">Cancelar</button>
+          <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <confirm-dialog></confirm-dialog>
+
+    <script src="../../components/site-header/site-header.js" defer></script>
+    <script src="../../components/site-footer/site-footer.js" defer></script>
+    <script src="../../components/confirm-dialog/confirm-dialog.js" defer></script>
+    <script src="../../shared/product_data.js" defer></script>
+    <script src="my-listings.js" defer></script>
+  </body>
+</html>
