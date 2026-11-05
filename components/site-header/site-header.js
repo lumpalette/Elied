@@ -7,11 +7,12 @@ class SiteHeader extends HTMLElement {
       { id: 'home', label: 'Inicio', href: 'index.html' },
       { id: 'catalog', label: 'Catálogo', href: 'pages/catalog/catalog.html' },
       { id: 'promotions', label: 'Promociones', href: 'pages/promotions/promotions.html' },
+      { id: 'season', label: 'Destacados', href: 'pages/campaign/campaign.html' },
       { id: 'about', label: 'Nosotros', href: 'pages/about/about.html' },
       { id: 'contact', label: 'Contacto', href: 'pages/contact/contact.html' },
     ];
 
-    const items = links
+    const items = links 
       .map(({ id, label, href }) => {
         const cls = id === active ? ' class="active"' : '';
         return `<li><a href="${root}${href}"${cls}>${label}</a></li>`;

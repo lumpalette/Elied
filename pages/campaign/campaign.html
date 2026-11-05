@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elied, ropa y accesorios</title>
+    <link rel="stylesheet" href="../../shared/styles/base.css">
+    <link rel="stylesheet" href="campaign.css">
+  </head>
+  <body>
+    <site-header root="../../" active="season"></site-header>
+    <main>
+      <section class="campaign-hero">
+        <div class="wrap">
+          <h1 class="campaign-title">Noches de satín</h1>
+          <p class="campaign-subtitle">
+            Una pieza pensada para las fiestas de fin de año: sencilla,
+            cómoda y hecha para durar más de una temporada.
+          </p>
+        </div>
+      </section>
+
+      <section class="campaign-featured">
+        <div class="wrap">
+          <featured-product product-id="15" promo="ELIED10"></featured-product>
+        </div>
+      </section>
+
+      <section class="campaign-reviews">
+        <div class="wrap">
+          <h2 class="reviews-title">Lo que dicen nuestras clientas</h2>
+          <p class="reviews-note">Reseñas de ejemplo (simuladas).</p>
+
+          <div class="review-grid">
+            <figure class="review card">
+              <p class="review-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</p>
+              <blockquote class="review-text">
+                Texto A
+              </blockquote>
+              <figcaption class="review-author">Persona A, Aguascalientes</figcaption>
+            </figure>
+
+            <figure class="review card">
+              <p class="review-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</p>
+              <blockquote class="review-text">
+                Texto B
+              </blockquote>
+              <figcaption class="review-author">Persona B, Calvillo</figcaption>
+            </figure>
+
+            <figure class="review card">
+              <p class="review-stars" role="img" aria-label="4 de 5 estrellas">★★★★☆</p>
+              <blockquote class="review-text">
+                Realmente alguien va a leer esto¿
+              </blockquote>
+              <figcaption class="review-author">micui, Aguascalientes</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="campaign-cta">
+        <div class="wrap">
+          <h2>Estrénalo estas fiestas</h2>
+          <p>Compra ahora y el código ELIED10 se aplica solo.</p>
+          <a href="../cart/cart.html?add=15&qty=1&promo=ELIED10" class="btn btn-primary">Comprar ahora</a>
+        </div>
+      </section>
+    </main>
+    <site-footer></site-footer>
+
+    <script src="../../components/site-header/site-header.js" defer></script>
+    <script src="../../components/site-footer/site-footer.js" defer></script>
+    <script src="../../shared/product_data.js" defer></script>
+    <script src="../../components/product-card/product-card.js" defer></script>
+    <script src="../../components/featured-product/featured-product.js" defer></script>
+  </body>
+</html>
