@@ -44,6 +44,12 @@
   font-size: 0.9rem;
 }
 
+.product-seller {
+  margin-top: 0.2rem;
+  color: var(--olive);
+  font-size: 0.78rem;
+}
+
 .product-card .btn {
   margin: 0.9rem 1rem 1rem;
 }
@@ -68,6 +74,15 @@
 .badge-sale {
   background: var(--wine);
   color: var(--ink);
+}
+
+/* Producto publicado por un cliente (C2C): esquina opuesta y solo borde. */
+.badge-community {
+  left: auto;
+  right: 0.6rem;
+  background: var(--bg);
+  border: 1px solid var(--olive);
+  color: var(--olive);
 }
 
 .price-old {

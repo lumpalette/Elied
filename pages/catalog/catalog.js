@@ -3,10 +3,12 @@ const catalogCount = document.getElementById('catalog-count');
 const catalogEmpty = document.getElementById('catalog-empty');
 const chips = document.querySelectorAll('.chip');
 const sortSelect = document.getElementById('sort');
+const sourceSelect = document.getElementById('source');
 const searchBar = document.querySelector('search-bar');
 
 const state = {
   category: 'all',
+  source: 'all',
   sort: 'default',
   query: '',
 };
@@ -23,12 +25,14 @@ function getVisibleProducts() {
 
   const products = PRODUCTS.filter(p => {
     const matchesCategory = state.category === 'all' || p.category === state.category;
+    const matchesSource =
+      state.source === 'all' || (state.source === 'community') === isCommunity(p);
     const matchesQuery =
       query === '' ||
       normalize(p.name).includes(query) ||
       normalize(CATEGORY_LABELS[p.category]).includes(query);
 
-    return matchesCategory && matchesQuery;
+    return matchesCategory && matchesSource && matchesQuery;
   });
 
   switch (state.sort) {
@@ -76,6 +80,11 @@ chips.forEach(chip => {
 
 sortSelect.addEventListener('change', () => {
   state.sort = sortSelect.value;
+  render();
+});
+
+sourceSelect.addEventListener('change', () => {
+  state.source = sourceSelect.value;
   render();
 });
 

@@ -2,6 +2,8 @@ const params = new URLSearchParams(window.location.search);
 const product = PRODUCTS.find(p => p.id === Number(params.get('id')));
 
 if (product) {
+  document.title = `Elied - ${product.name}`;
+
   const thumbnail = document.getElementById('product-thumbnail');
   thumbnail.dataset.tone = product.tone;
   thumbnail.innerHTML = ProductBadge(product);
@@ -9,6 +11,7 @@ if (product) {
   document.getElementById('product-category').textContent = CATEGORY_LABELS[product.category];
   document.getElementById('product-name').textContent = product.name;
   document.getElementById('product-price').innerHTML = ProductPrice(product);
+  document.getElementById('product-seller').textContent = sellerLabel(product);
   document.getElementById('product-desc').textContent =
     product.description || DESCRIPTIONS[product.category];
 
