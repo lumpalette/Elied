@@ -47,6 +47,12 @@ function getVisibleProducts() {
         a.name.localeCompare(b.name, 'es', { numeric: true })
       );
       break;
+    case 'seller':
+      products.sort((a, b) =>
+        isCommunity(a) - isCommunity(b) ||
+        (a.seller || '').localeCompare(b.seller || '', 'es')
+      );
+      break;
   }
 
   return products;

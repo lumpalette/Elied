@@ -79,7 +79,7 @@ function applyPromo(rawCode) {
   }
 
   promoCode = code;
-  promoForm.setStatus('Descuento aplicado (simulado)');
+  promoForm.setStatus('Descuento aplicado ');
   render();
 }
 

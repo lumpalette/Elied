@@ -45,3 +45,9 @@
   color: var(--ink-muted);
   overflow-wrap: anywhere;
 }
+
+.comment-actions {
+  display: flex;
+  gap: 1.1rem;
+  margin-top: 0.9rem;
+}

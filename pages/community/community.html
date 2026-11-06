@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elied, ropa y accesorios</title>
+    <title>Elied - Comunidad</title>
     <link rel="stylesheet" href="../../shared/styles/base.css">
     <link rel="stylesheet" href="community.css">
   </head>
@@ -21,11 +21,8 @@
         <div class="wrap community-grid">
           <div class="card community-form-card">
             <h2>Deja tu comentario</h2>
+            <p class="community-as">Publicando como <strong id="comment-as"></strong></p>
             <form id="comment-form">
-              <div class="field">
-                <label for="comment-author">Nombre*</label>
-                <input type="text" id="comment-author" name="nombre" placeholder="Tu nombre" required>
-              </div>
               <div class="field">
                 <label for="comment-rating">Valoración</label>
                 <select id="comment-rating" name="valoracion">
@@ -37,7 +34,7 @@
                 </select>
               </div>
               <div class="field">
-                <label for="comment-text">Comentario*</label>
+                <label for="comment-text">Comentario</label>
                 <textarea id="comment-text" name="comentario" rows="4" placeholder="Escribe tu comentario aquí" required></textarea>
               </div>
               <button type="submit" class="btn btn-primary">Publicar</button>
@@ -51,14 +48,43 @@
               <p id="comment-count" class="community-count" aria-live="polite"></p>
             </div>
             <ul class="comment-list" id="comment-list"></ul>
+            <p class="community-empty" id="comments-empty" hidden>Aún no hay comentarios. ¡Sé el primero en escribir uno!</p>
           </div>
         </div>
       </section>
     </main>
     <site-footer></site-footer>
 
+    <dialog class="form-dialog" id="comment-dialog" aria-labelledby="comment-dialog-title">
+      <form id="edit-form">
+        <h2 id="comment-dialog-title">Editar comentario</h2>
+        <div class="field">
+          <label for="edit-rating">Valoración</label>
+          <select id="edit-rating">
+            <option value="5">★★★★★ Excelente</option>
+            <option value="4">★★★★☆ Muy bien</option>
+            <option value="3">★★★☆☆ Regular</option>
+            <option value="2">★★☆☆☆ Mejorable</option>
+            <option value="1">★☆☆☆☆ Malo</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="edit-text">Comentario</label>
+          <textarea id="edit-text" rows="4" required></textarea>
+        </div>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-sm" id="cancel-edit-btn">Cancelar</button>
+          <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <confirm-dialog></confirm-dialog>
+
     <script src="../../components/site-header/site-header.js" defer></script>
     <script src="../../components/site-footer/site-footer.js" defer></script>
+    <script src="../../components/confirm-dialog/confirm-dialog.js" defer></script>
+    <script src="../../shared/community_data.js" defer></script>
     <script src="../../components/comment-card/comment-card.js" defer></script>
     <script src="community.js" defer></script>
   </body>

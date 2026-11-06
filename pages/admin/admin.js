@@ -114,7 +114,7 @@ form.addEventListener('submit', e => {
     const product = { id: nextId++, tone: Math.ceil(Math.random() * 8), ...data };
     if (description) product.description = description;
     products.push(product);
-    showStatus('Producto agregado (simulado)');
+    showStatus('Producto agregado ');
   } else {
     const product = products.find(p => p.id === editingId);
     Object.assign(product, data);
@@ -123,7 +123,7 @@ form.addEventListener('submit', e => {
     } else {
       delete product.description;
     }
-    showStatus('Producto actualizado (simulado)');
+    showStatus('Producto actualizado ');
   }
 
   dialog.close();
@@ -142,13 +142,13 @@ adminBody.addEventListener('click', async e => {
   } else if (button.dataset.action === 'delete') {
     const confirmed = await confirmDialog.ask({
       title: '¿Eliminar producto?',
-      message: `Se eliminará "${product.name}" del panel (simulado).`,
+      message: `Se eliminará "${product.name}" del panel .`,
       confirmLabel: 'Eliminar',
     });
     if (!confirmed) return;
 
     products = products.filter(p => p.id !== id);
-    showStatus('Producto eliminado (simulado)');
+    showStatus('Producto eliminado ');
     render();
   }
 });

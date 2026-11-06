@@ -1,0 +1,33 @@
+@import url("../../shared/styles/card.css");
+
+.review {
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid var(--wine-light);
+}
+
+.review-stars {
+  margin-bottom: 0.75rem;
+  color: var(--olive);
+  letter-spacing: 0.15em;
+}
+
+.review-text {
+  margin-bottom: 1.25rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+
+.review-author {
+  margin-top: auto;
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+}
+
+.review-actions {
+  display: flex;
+  gap: 1.1rem;
+  margin-top: 0.9rem;
+}

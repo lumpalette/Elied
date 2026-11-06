@@ -91,6 +91,110 @@
   color: var(--ink);
 }
 
+/* Descubre más: banners con imagen de fondo */
+
+.home-discover {
+  padding-top: clamp(3rem, 8vw, 5rem);
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+  border-top: 1px solid var(--line);
+}
+
+/*
+  Cada tarjeta apila tres capas: un degradado oscuro (para que el texto se lea),
+  la imagen (--tile-image) y un degradado de respaldo por si la imagen no existe.
+*/
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 240px;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: var(--bg-raised);
+  background-image:
+    linear-gradient(180deg, rgba(22, 20, 18, 0.25) 0%, rgba(22, 20, 18, 0.9) 100%),
+    var(--tile-image, none),
+    var(--tile-fallback, linear-gradient(155deg, var(--line), var(--bg)));
+  background-size: cover;
+  background-position: center;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.tile:hover {
+  border-color: var(--olive);
+  transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile { transition: none; }
+  .tile:hover { transform: none; }
+}
+
+.tile-campaign  { --tile-fallback: linear-gradient(155deg, var(--wine), var(--bg)); }
+.tile-auction   { --tile-fallback: linear-gradient(155deg, var(--olive), var(--bg)); }
+.tile-promos    { --tile-fallback: linear-gradient(155deg, var(--wine-light), var(--bg-raised)); }
+.tile-community { --tile-fallback: linear-gradient(155deg, var(--line), var(--wine)); }
+
+.tile-wide {
+  min-height: clamp(280px, 40vw, 380px);
+  margin-bottom: 1.75rem;
+}
+
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+@media (max-width: 860px) {
+  .tile-grid { grid-template-columns: 1fr; }
+}
+
+.tile-tag {
+  align-self: flex-start;
+  margin-bottom: 0.9rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  background: var(--wine);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tile-title {
+  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+}
+
+.tile-wide .tile-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-style: italic;
+  line-height: 1.15;
+}
+
+.tile-text {
+  max-width: 460px;
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+}
+
+.tile-cta {
+  margin-top: 1rem;
+  color: var(--olive);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.tile:hover .tile-cta {
+  color: var(--ink);
+}
+
 .home-about-teaser {
   padding-top: clamp(3rem, 8vw, 5rem);
   padding-bottom: clamp(3rem, 8vw, 5rem);

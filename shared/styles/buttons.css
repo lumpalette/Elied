@@ -47,3 +47,15 @@
   cursor: not-allowed;
   pointer-events: none;
 }
+
+.link-action {
+  color: var(--olive);
+  font-size: 0.85rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.link-action:hover {
+  color: var(--ink);
+}

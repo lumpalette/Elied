@@ -28,34 +28,15 @@
 
       <section class="campaign-reviews">
         <div class="wrap">
-          <h2 class="reviews-title">Lo que dicen nuestros clientes</h2>
-          <p class="reviews-note">Reseñas de ejemplo (simuladas).</p>
-
-          <div class="review-grid">
-            <figure class="review card">
-              <p class="review-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</p>
-              <blockquote class="review-text">
-                Texto A
-              </blockquote>
-              <figcaption class="review-author">Persona A, Aguascalientes</figcaption>
-            </figure>
-
-            <figure class="review card">
-              <p class="review-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</p>
-              <blockquote class="review-text">
-                Texto B
-              </blockquote>
-              <figcaption class="review-author">Persona B, Calvillo</figcaption>
-            </figure>
-
-            <figure class="review card">
-              <p class="review-stars" role="img" aria-label="4 de 5 estrellas">★★★★☆</p>
-              <blockquote class="review-text">
-                Realmente alguien va a leer esto¿
-              </blockquote>
-              <figcaption class="review-author">Poeoquito, Aguascalientes</figcaption>
-            </figure>
+          <div class="reviews-heading">
+            <div>
+              <h2 class="reviews-title">Lo que dicen nuestros clientes</h2>
+              <p class="reviews-note"></p>
+            </div>
+            <a href="../profile/profile.html#my-reviews" class="btn btn-sm">Escribir reseña</a>
           </div>
+
+          <div class="review-grid" id="review-grid"></div>
         </div>
       </section>
 
@@ -72,7 +53,10 @@
     <script src="../../components/site-header/site-header.js" defer></script>
     <script src="../../components/site-footer/site-footer.js" defer></script>
     <script src="../../shared/product_data.js" defer></script>
+    <script src="../../shared/community_data.js" defer></script>
     <script src="../../components/product-card/product-card.js" defer></script>
     <script src="../../components/featured-product/featured-product.js" defer></script>
+    <script src="../../components/review-card/review-card.js" defer></script>
+    <script src="campaign.js" defer></script>
   </body>
 </html>

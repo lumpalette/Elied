@@ -84,7 +84,7 @@ if (newName && newPrice > 0) {
     tone: Math.ceil(Math.random() * 8),
     date: 'Publicado justo ahora',
   });
-  showStatus('Publicado (simulado)');
+  showStatus('Publicado ');
 
   history.replaceState(null, '', window.location.pathname);
 }
@@ -110,7 +110,7 @@ form.addEventListener('submit', e => {
   listing.description = fieldDescription.value.trim();
 
   dialog.close();
-  showStatus('Publicación actualizada (simulado)');
+  showStatus('Publicación actualizada ');
   render();
 });
 

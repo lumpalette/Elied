@@ -1,11 +1,13 @@
 const MIN_STEP = 10;
-const DURATION_SECONDS = 10;
+const DURATION_SECONDS = 20;
 
 // Producto subastado: auction.html?id=7 (por defecto, el bolso de cuero).
+const product_id = Math.floor(Math.random() * PRODUCTS.length) + 1
+console.trace(product_id)
 const params = new URLSearchParams(window.location.search);
 const product =
   PRODUCTS.find(p => p.id === Number(params.get('id'))) ||
-  PRODUCTS.find(p => p.id === 7);
+  PRODUCTS.find(p => p.id === product_id);
 
 const timerBox = document.querySelector('.auction-timer');
 const timerEl = document.getElementById('auction-timer');
@@ -26,7 +28,7 @@ document.getElementById('auction-desc').textContent =
 
 const base = Math.round(product.price * 0.5 / 10) * 10;
 let bids = [
-  { bidder: "Poeoquito", amount: base + 9999, time: "Hace -1 s" },
+  { bidder: "Poeoquito", amount: 999, time: "Hace -1 s" },
   { bidder: 'Persona C', amount: base + 150, time: 'Hace 12 min' },
   { bidder: 'Persona B', amount: base + 90, time: 'Hace 40 min' },
   { bidder: 'Persona A', amount: base + 40, time: 'Hace 1 h' },
@@ -71,7 +73,7 @@ bidForm.addEventListener('submit', e => {
 
   bids.unshift({ bidder: 'Tú', amount, time: 'Justo ahora' });
   bidInput.value = '';
-  showStatus('Oferta registrada (simulado)');
+  showStatus('Oferta registrada ');
   render();
 });
 
@@ -97,7 +99,7 @@ const timer = setInterval(() => {
     timerBox.classList.add('is-ended');
     bidInput.disabled = true;
     bidSubmit.disabled = true;
-    showStatus('La subasta ha finalizado (simulado).');
+    showStatus('La subasta ha finalizado.');
   }
 }, 1000);
 

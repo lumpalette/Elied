@@ -14,10 +14,10 @@
         <div class="wrap">
           <div class="profile-card card">
             <div class="profile-header">
-              <div class="profile-avatar">B</div>
+              <div class="profile-avatar" id="profile-avatar">B</div>
               <div>
-                <h1 class="profile-name">Betabel</h1>
-                <p class="profile-email">poeoquito.bb@ejemplo.com</p>
+                <h1 class="profile-name" id="profile-name">Betabel</h1>
+                <p class="profile-email" id="profile-email">poeoquito.bb@ejemplo.com</p>
               </div>
             </div>
             <div class="profile-grid">
@@ -26,13 +26,23 @@
                 <dl class="data-list">
                   <div class="info">
                     <dt>Nombre</dt>
-                    <dd>Betabel</dd>
+                    <dd id="data-name">Betabel</dd>
                   </div>
                   <div class="info">
                     <dt>Correo</dt>
-                    <dd>poeoquito.bb@ejemplo.com</dd>
+                    <dd id="data-email">poeoquito.bb@ejemplo.com</dd>
+                  </div>
+                  <div class="info">
+                    <dt>Teléfono</dt>
+                    <dd id="data-phone">449 123 4567</dd>
+                  </div>
+                  <div class="info">
+                    <dt>Ciudad</dt>
+                    <dd id="data-city">Calvillo, Aguascalientes</dd>
                   </div>
                 </dl>
+                <button type="button" class="btn btn-sm profile-edit-btn" id="edit-profile-btn">Editar datos</button>
+                <p id="profile-status" class="form-status" role="status" aria-live="polite"></p>
               </div>
               <div class="profile-block">
                 <h2>Mis compras</h2>
@@ -47,6 +57,30 @@
                   <a href="../publish/publish.html" class="btn btn-sm btn-primary">Publicar producto</a>
                 </div>
               </div>
+
+              <div class="profile-block profile-block-wide" id="my-comments">
+                <div class="profile-block-heading">
+                  <h2>Mis comentarios</h2>
+                  <button type="button" class="btn btn-sm" id="new-comment-btn">Escribir comentario</button>
+                </div>
+                <p id="comments-status" class="form-status" role="status" aria-live="polite"></p>
+                <ul class="comment-list" id="my-comment-list"></ul>
+                <p class="profile-placeholder" id="my-comments-empty" hidden>
+                  Aún no has escrito comentarios. <a href="../community/community.html">Ir a la comunidad</a>
+                </p>
+              </div>
+
+              <div class="profile-block profile-block-wide" id="my-reviews">
+                <div class="profile-block-heading">
+                  <h2>Mis reseñas</h2>
+                  <button type="button" class="btn btn-sm" id="new-review-btn">Escribir reseña</button>
+                </div>
+                <p id="reviews-status" class="form-status" role="status" aria-live="polite"></p>
+                <ul class="review-list" id="my-review-list"></ul>
+                <p class="profile-placeholder" id="my-reviews-empty" hidden>
+                  Aún no has escrito reseñas. <a href="../campaign/campaign.html">Ver la campaña</a>
+                </p>
+              </div>
             </div>
 
             <div class="profile-actions">
@@ -59,8 +93,92 @@
     </main>
     <site-footer></site-footer>
 
+    <dialog class="form-dialog" id="profile-dialog" aria-labelledby="profile-dialog-title">
+      <form id="profile-form">
+        <h2 id="profile-dialog-title">Editar mis datos</h2>
+        <div class="field">
+          <label for="field-name">Nombre</label>
+          <input type="text" id="field-name" required>
+        </div>
+        <div class="field">
+          <label for="field-email">Correo</label>
+          <input type="email" id="field-email" required>
+        </div>
+        <div class="field">
+          <label for="field-phone">Teléfono</label>
+          <input type="tel" id="field-phone">
+        </div>
+        <div class="field">
+          <label for="field-city">Ciudad</label>
+          <input type="text" id="field-city">
+        </div>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-sm" id="cancel-profile-btn">Cancelar</button>
+          <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="form-dialog" id="comment-dialog" aria-labelledby="comment-dialog-title">
+      <form id="comment-form">
+        <h2 id="comment-dialog-title"></h2>
+        <div class="field">
+          <label for="comment-rating">Valoración</label>
+          <select id="comment-rating">
+            <option value="5">★★★★★ Excelente</option>
+            <option value="4">★★★★☆ Muy bien</option>
+            <option value="3">★★★☆☆ Regular</option>
+            <option value="2">★★☆☆☆ Mejorable</option>
+            <option value="1">★☆☆☆☆ Malo</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="comment-text">Comentario</label>
+          <textarea id="comment-text" rows="4" placeholder="Escribe tu comentario aquí" required></textarea>
+        </div>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-sm" id="cancel-comment-btn">Cancelar</button>
+          <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="form-dialog" id="review-dialog" aria-labelledby="review-dialog-title">
+      <form id="review-form">
+        <h2 id="review-dialog-title"></h2>
+        <div class="field">
+          <label for="review-city">Ciudad</label>
+          <input type="text" id="review-city" placeholder="Aguascalientes">
+        </div>
+        <div class="field">
+          <label for="review-rating">Valoración</label>
+          <select id="review-rating">
+            <option value="5">★★★★★ Excelente</option>
+            <option value="4">★★★★☆ Muy bien</option>
+            <option value="3">★★★☆☆ Regular</option>
+            <option value="2">★★☆☆☆ Mejorable</option>
+            <option value="1">★☆☆☆☆ Malo</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="review-text">Reseña</label>
+          <textarea id="review-text" rows="4" placeholder="Cuéntanos tu experiencia" required></textarea>
+        </div>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-sm" id="cancel-review-btn">Cancelar</button>
+          <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <confirm-dialog></confirm-dialog>
+
     <script src="../../components/site-header/site-header.js" defer></script>
     <script src="../../components/site-footer/site-footer.js" defer></script>
+    <script src="../../components/confirm-dialog/confirm-dialog.js" defer></script>
+    <script src="../../shared/community_data.js" defer></script>
+    <script src="../../components/comment-card/comment-card.js" defer></script>
+    <script src="../../components/review-card/review-card.js" defer></script>
     <script src="profile.js" defer></script>
   </body>
 </html>
