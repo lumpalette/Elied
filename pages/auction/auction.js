@@ -1,5 +1,5 @@
 const MIN_STEP = 10;
-const DURATION_SECONDS = 20;
+const DURATION_SECONDS = 30;
 
 // Producto subastado: auction.html?id=7 (por defecto, el bolso de cuero).
 const product_id = Math.floor(Math.random() * PRODUCTS.length) + 1

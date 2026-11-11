@@ -52,7 +52,7 @@ class SiteHeader extends HTMLElement {
 
     if (active === 'profile') {
       account = `<li><a href="${root}pages/profile/profile.html" class="active">Mi perfil</a></li>`;
-    } else if (active === 'admin') {
+    } else if (active === 'admin' || active === 'community') {
       account = `<li><a href="${root}pages/profile/profile.html">Mi perfil</a></li>`;
     }
 

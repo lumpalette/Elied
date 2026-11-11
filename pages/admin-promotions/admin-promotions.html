@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elied, ropa y accesorios</title>
+    <title>Elied - Promociones</title>
     <link rel="stylesheet" href="../../shared/styles/base.css">
     <link rel="stylesheet" href="admin-promotions.css">
   </head>
@@ -13,24 +13,101 @@
       <section class="page-intro">
         <div class="wrap">
           <h1 class="page-title">Panel de administración</h1>
-          <p class="page-subtitle">Gestiona las promociones de la tienda .</p>
+          <p class="page-subtitle">Gestiona los códigos de promoción de la tienda (simulado).</p>
         </div>
       </section>
 
       <div class="wrap admin-layout">
         <admin-sidebar active="promotions" root="../../"></admin-sidebar>
+
         <section class="admin-main">
-          <div class="card">
-            <h2>Promociones</h2>
-            <p class="admin-placeholder">Próximamente</p>
+          <div class="admin-stats">
+            <div class="card stat">
+              <p class="stat-label">Códigos activos</p>
+              <p class="stat-value" id="stat-codes"></p>
+            </div>
+            <div class="card stat">
+              <p class="stat-label">Mayor descuento</p>
+              <p class="stat-value" id="stat-max"></p>
+            </div>
+            <div class="card stat">
+              <p class="stat-label">Tipos en uso</p>
+              <p class="stat-value" id="stat-types"></p>
+            </div>
           </div>
+
+          <div class="admin-toolbar">
+            <search-bar class="admin-search" label="Buscar promoción" placeholder="Código o título"></search-bar>
+            <button class="btn btn-primary" id="new-promo-btn">Nueva promoción</button>
+          </div>
+
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th scope="col">Código</th>
+                  <th scope="col">Promoción</th>
+                  <th scope="col">Descuento</th>
+                  <th scope="col">Aplica a</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="promo-body"></tbody>
+            </table>
+          </div>
+          <p class="admin-empty" id="promo-empty" hidden>No se encontraron promociones.</p>
+          <p id="promo-status" class="form-status" role="status" aria-live="polite"></p>
         </section>
       </div>
     </main>
     <site-footer></site-footer>
 
+    <dialog class="form-dialog" id="promo-dialog" aria-labelledby="promo-dialog-title">
+      <form id="promo-form">
+        <h2 id="promo-dialog-title"></h2>
+        <div class="field">
+          <label for="field-code">Código</label>
+          <input type="text" id="field-code" placeholder="ELIED10" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="field-title">Título</label>
+          <input type="text" id="field-title" placeholder="10% de descuento">
+        </div>
+        <div class="field">
+          <label for="field-type">Tipo</label>
+          <select id="field-type">
+            <option value="percent">Porcentaje de descuento</option>
+            <option value="bogo">2x1</option>
+            <option value="shipping">Envío gratis</option>
+          </select>
+        </div>
+        <div class="field" id="value-field">
+          <label for="field-value">Porcentaje (%)</label>
+          <input type="number" id="field-value" min="1" max="100" step="1" placeholder="10">
+        </div>
+        <div class="field">
+          <label for="field-category">Aplica a</label>
+          <select id="field-category"></select>
+        </div>
+        <div class="field">
+          <label for="field-description">Descripción</label>
+          <textarea id="field-description" rows="3" placeholder="Obtén 10% menos en todos los productos de tu carrito."></textarea>
+        </div>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-sm" id="cancel-btn">Cancelar</button>
+          <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <confirm-dialog></confirm-dialog>
+
     <script src="../../components/site-header/site-header.js" defer></script>
     <script src="../../components/site-footer/site-footer.js" defer></script>
     <script src="../../components/admin-sidebar/admin-sidebar.js" defer></script>
+    <script src="../../components/search-bar/search-bar.js" defer></script>
+    <script src="../../components/confirm-dialog/confirm-dialog.js" defer></script>
+    <script src="../../shared/product_data.js" defer></script>
+    <script src="admin-promotions.js" defer></script>
   </body>
 </html>

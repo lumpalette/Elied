@@ -8,7 +8,7 @@ class PromoForm extends HTMLElement {
         <div class="field">
           <label for="promo-input">Código de descuento</label>
           <div class="promo-row">
-            <input type="text" id="promo-input" placeholder="ELIED10" autocomplete="off" required>
+            <input type="text" id="promo-input" placeholder="ELIED10" autocomplete="off">
             <button type="submit" class="btn btn-sm">Aplicar</button>
           </div>
         </div>
