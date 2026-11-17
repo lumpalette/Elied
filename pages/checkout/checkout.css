@@ -1,0 +1,359 @@
+@import url("../../components/page-intro/page-intro.css");
+@import url("../../components/data-list/data-list.css");
+@import url("../../shared/styles/forms.css");
+@import url("../../shared/styles/card.css");
+
+[hidden] {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.checkout-content {
+  padding-top: 1.5rem;
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+}
+
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .checkout-grid { grid-template-columns: 1fr; }
+}
+
+.checkout-main {
+  min-width: 0;
+}
+
+.checkout-empty {
+  padding: 3rem 0;
+  text-align: center;
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+.checkout-empty a {
+  color: var(--olive);
+}
+
+/* Indicador de pasos */
+
+.stepper {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.stepper-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--line);
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+}
+
+.stepper-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+}
+
+.stepper-item.is-current {
+  border-bottom-color: var(--wine-light);
+  color: var(--ink);
+}
+
+.stepper-item.is-current .stepper-num {
+  background: var(--wine);
+  border-color: var(--wine);
+}
+
+.stepper-item.is-done {
+  border-bottom-color: var(--olive);
+  color: var(--ink-muted);
+}
+
+.stepper-item.is-done .stepper-num {
+  border-color: var(--olive);
+  color: var(--olive);
+}
+
+@media (max-width: 520px) {
+  .stepper-label { display: none; }
+  .stepper-item.is-current .stepper-label { display: inline; }
+}
+
+/* Pasos */
+
+.step-title {
+  margin-bottom: 1.25rem;
+  font-size: 1.3rem;
+}
+
+.step-title:focus {
+  outline: none;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1rem;
+}
+
+@media (max-width: 520px) {
+  .field-row { grid-template-columns: 1fr; }
+}
+
+.step-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* Errores de validación */
+
+.field-error {
+  margin-top: 0.4rem;
+  color: var(--wine-light);
+  font-size: 0.8rem;
+}
+
+.field input[aria-invalid="true"] {
+  border-color: var(--wine-light);
+}
+
+/* Métodos de pago */
+
+.pay-methods {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+  border: none;
+}
+
+@media (max-width: 560px) {
+  .pay-methods { grid-template-columns: 1fr; }
+}
+
+.pay-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--bg);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.pay-option:hover {
+  border-color: var(--olive);
+}
+
+.pay-option:has(input:checked) {
+  border-color: var(--wine-light);
+  background: var(--bg-raised);
+  box-shadow: inset 3px 0 0 var(--wine-light);
+}
+
+.pay-option:has(input:focus-visible) {
+  outline: 2px solid var(--olive);
+  outline-offset: 3px;
+}
+
+.pay-option input {
+  margin-top: 0.25rem;
+  accent-color: var(--wine-light);
+}
+
+.pay-option-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.pay-option-title {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.pay-option-desc {
+  color: var(--ink-muted);
+  font-size: 0.8rem;
+}
+
+.pay-panel {
+  margin: 1.25rem 0;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--bg);
+}
+
+.pay-panel .field:last-of-type {
+  margin-bottom: 0;
+}
+
+.pay-panel .field input,
+.pay-panel .field textarea {
+  background: var(--bg-raised);
+}
+
+.pay-note {
+  margin: 0.75rem 0;
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+}
+
+.pay-note:first-child {
+  margin-top: 0;
+}
+
+.pay-note:last-child {
+  margin-bottom: 0;
+}
+
+.pay-data {
+  margin: 1rem 0;
+}
+
+.pay-data dd {
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.check-row input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--olive);
+  cursor: pointer;
+}
+
+.check-row label {
+  cursor: pointer;
+}
+
+.cash-reference {
+  margin: 0.75rem 0;
+  padding: 0.9rem;
+  border: 1px dashed var(--olive);
+  border-radius: 2px;
+  color: var(--olive);
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 4vw, 1.5rem);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+/* Revisión */
+
+.review-list {
+  margin-bottom: 1.5rem;
+}
+
+.review-list dd {
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+/* Resumen lateral */
+
+.checkout-summary {
+  position: sticky;
+  top: 5.5rem;
+}
+
+@media (max-width: 860px) {
+  .checkout-summary { position: static; }
+}
+
+.checkout-summary h2 {
+  margin-bottom: 1.1rem;
+  font-size: 1.05rem;
+  color: var(--olive);
+}
+
+.summary-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.summary-item-name {
+  color: var(--ink);
+}
+
+.summary-item-qty {
+  display: block;
+  color: var(--ink-muted);
+  font-size: 0.8rem;
+}
+
+.summary-item-price {
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+}
+
+.summary-discount {
+  color: var(--olive);
+}
+
+.summary-total {
+  margin-top: 0.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 1.1rem;
+  font-weight: 500;
+}

@@ -20,6 +20,7 @@ const summaryNote = document.getElementById('summary-note');
 const suggestionsSection = document.getElementById('cart-suggestions');
 const suggestionsGrid = document.getElementById('suggestions-grid');
 const confirmDialog = document.querySelector('confirm-dialog');
+const checkoutBtn = document.getElementById('checkout-btn');
 const promoForm = document.querySelector('promo-form');
 
 // The cart lives only in memory: it is rebuilt every time the page loads.
@@ -121,43 +122,6 @@ function SuggestionCard(product) {
     </li>`;
 }
 
-function render() {
-  const units = cart.reduce((sum, item) => sum + item.qty, 0);
-  const subtotal = cart.reduce(
-    (sum, item) => sum + findProduct(item.id).price * item.qty,
-    0
-  );
-
-  const promo = PROMOS[promoCode];
-  const discount = promo ? calcDiscount(promo) : 0;
-  const freeShippingPromo = promo && promo.type === 'shipping';
-  const shipping =
-    freeShippingPromo || subtotal >= FREE_SHIPPING_FROM || subtotal === 0 ? 0 : SHIPPING_COST;
-
-  cartList.innerHTML = cart.map(CartItem).join('');
-  cartEmpty.hidden = cart.length > 0;
-
-  cartSubtitle.textContent =
-    units === 0 ? '' : `${units} ${units === 1 ? 'producto' : 'productos'} en tu carrito`;
-
-  summarySubtotal.textContent = formatPrice(subtotal);
-  summaryDiscountRow.hidden = discount === 0;
-  summaryDiscountCode.textContent = promoCode;
-  summaryDiscount.textContent = `−${formatPrice(discount)}`;
-  summaryShipping.textContent =
-    subtotal === 0 ? '—' : shipping === 0 ? 'Gratis' : formatPrice(shipping);
-  summaryTotal.textContent = formatPrice(subtotal - discount + shipping);
-  summaryNote.textContent =
-    shipping > 0 ? `Te faltan ${formatPrice(FREE_SHIPPING_FROM - subtotal)} para envío gratis.` : '';
-
-  const suggestions = PRODUCTS
-    .filter(p => !cart.some(item => item.id === p.id))
-    .slice(0, MAX_SUGGESTIONS);
-
-  suggestionsGrid.innerHTML = suggestions.map(SuggestionCard).join('');
-  suggestionsSection.hidden = suggestions.length === 0;
-}
-
 cartList.addEventListener('click', async e => {
   const button = e.target.closest('button[data-action]');
   if (!button) return;
@@ -205,6 +169,57 @@ const termsCheckbox = document.getElementById('terms-checkbox');
 
 document.getElementById('terms-open').addEventListener('click', () => termsDialog.showModal());
 document.getElementById('terms-close').addEventListener('click', () => { termsDialog.close(); });
+
+function updateCheckoutLink() {
+  const canPay = cart.length > 0 && termsCheckbox.checked;
+  const query = new URLSearchParams({ items: cart.map(i => `${i.id}:${i.qty}`).join(',') });
+  if (promoCode) query.set('promo', promoCode);
+
+  checkoutBtn.href = `../checkout/checkout.html?${query}`;
+  checkoutBtn.classList.toggle('is-disabled', !canPay);
+  checkoutBtn.setAttribute('aria-disabled', !canPay);
+}
+
+termsCheckbox.addEventListener('change', updateCheckoutLink);
+
+function render() {
+  const units = cart.reduce((sum, item) => sum + item.qty, 0);
+  const subtotal = cart.reduce(
+    (sum, item) => sum + findProduct(item.id).price * item.qty,
+    0
+  );
+
+  const promo = PROMOS[promoCode];
+  const discount = promo ? calcDiscount(promo) : 0;
+  const freeShippingPromo = promo && promo.type === 'shipping';
+  const shipping =
+    freeShippingPromo || subtotal >= FREE_SHIPPING_FROM || subtotal === 0 ? 0 : SHIPPING_COST;
+
+  cartList.innerHTML = cart.map(CartItem).join('');
+  cartEmpty.hidden = cart.length > 0;
+
+  cartSubtitle.textContent =
+    units === 0 ? '' : `${units} ${units === 1 ? 'producto' : 'productos'} en tu carrito`;
+
+  summarySubtotal.textContent = formatPrice(subtotal);
+  summaryDiscountRow.hidden = discount === 0;
+  summaryDiscountCode.textContent = promoCode;
+  summaryDiscount.textContent = `−${formatPrice(discount)}`;
+  summaryShipping.textContent =
+    subtotal === 0 ? '—' : shipping === 0 ? 'Gratis' : formatPrice(shipping);
+  summaryTotal.textContent = formatPrice(subtotal - discount + shipping);
+  summaryNote.textContent =
+    shipping > 0 ? `Te faltan ${formatPrice(FREE_SHIPPING_FROM - subtotal)} para envío gratis.` : '';
+
+  const suggestions = PRODUCTS
+    .filter(p => !cart.some(item => item.id === p.id))
+    .slice(0, MAX_SUGGESTIONS);
+
+  suggestionsGrid.innerHTML = suggestions.map(SuggestionCard).join('');
+  suggestionsSection.hidden = suggestions.length === 0;
+
+  updateCheckoutLink();
+}
 
 render();
 

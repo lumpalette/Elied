@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elied - Checkout</title>
+    <link rel="stylesheet" href="../../shared/styles/base.css">
+    <link rel="stylesheet" href="checkout.css">
+  </head>
+  <body>
+    <site-header root="../../" active="cart"></site-header>
+    <main>
+      <section class="checkout-content">
+        <div class="wrap">
+          <p class="checkout-empty" id="checkout-empty" hidden>
+            No hay productos para pagar. <a href="../cart/cart.html">Volver al carrito</a>
+          </p>
+
+          <div class="checkout-grid" id="checkout-grid">
+            <div class="checkout-main">
+              <ol class="stepper" id="stepper" aria-label="Pasos del checkout">
+                <li class="stepper-item is-current" data-step="1" aria-current="step"><span class="stepper-num">1</span><span class="stepper-label">Dirección</span></li>
+                <li class="stepper-item" data-step="2"><span class="stepper-num">2</span><span class="stepper-label">Pago</span></li>
+                <li class="stepper-item" data-step="3"><span class="stepper-num">3</span><span class="stepper-label">Confirmación</span></li>
+              </ol>
+
+              <!-- PASO 1: Dirección -->
+              <section class="card checkout-step" id="step-1" data-step="1" aria-labelledby="step-1-title">
+                <h2 class="step-title" id="step-1-title" tabindex="-1">Dirección de envío</h2>
+                <form id="address-form" novalidate>
+                  <div class="field">
+                    <label for="addr-name">Nombre completo</label>
+                    <input type="text" id="addr-name" autocomplete="name" placeholder="Tu nombre">
+                  </div>
+                  <div class="field-row">
+                    <div class="field">
+                      <label for="addr-phone">Teléfono</label>
+                      <input type="tel" id="addr-phone" data-digits="10" autocomplete="tel" placeholder="4491234567">
+                    </div>
+                    <div class="field">
+                      <label for="addr-email">Correo</label>
+                      <input type="email" id="addr-email" autocomplete="email" placeholder="tucorreo@ejemplo.com">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label for="addr-street">Calle y número</label>
+                    <input type="text" id="addr-street" autocomplete="address-line1" placeholder="Av. Principal 123">
+                  </div>
+                  <div class="field-row">
+                    <div class="field">
+                      <label for="addr-colony">Colonia</label>
+                      <input type="text" id="addr-colony" placeholder="Centro">
+                    </div>
+                    <div class="field">
+                      <label for="addr-zip">Código postal</label>
+                      <input type="text" id="addr-zip" data-digits="5" inputmode="numeric" autocomplete="postal-code" placeholder="20800">
+                    </div>
+                  </div>
+                  <div class="field-row">
+                    <div class="field">
+                      <label for="addr-city">Ciudad</label>
+                      <input type="text" id="addr-city" autocomplete="address-level2" placeholder="Calvillo">
+                    </div>
+                    <div class="field">
+                      <label for="addr-state">Estado</label>
+                      <input type="text" id="addr-state" autocomplete="address-level1" placeholder="Aguascalientes">
+                    </div>
+                  </div>
+                  <div class="step-actions">
+                    <a href="../cart/cart.html" class="btn btn-sm">Volver al carrito</a>
+                    <button type="submit" class="btn btn-primary">Continuar al pago</button>
+                  </div>
+                </form>
+              </section>
+
+              <!-- PASO 2: Método de pago -->
+              <section class="card checkout-step" id="step-2" data-step="2" aria-labelledby="step-2-title" hidden>
+                <h2 class="step-title" id="step-2-title" tabindex="-1">Método de pago</h2>
+                <form id="payment-form" novalidate>
+                  <fieldset class="pay-methods">
+                    <legend class="visually-hidden">Selecciona un método de pago</legend>
+
+                    <label class="pay-option">
+                      <input type="radio" name="payment" value="card">
+                      <span class="pay-option-body">
+                        <span class="pay-option-title">Tarjeta de crédito/débito</span>
+                        <span class="pay-option-desc">Visa, Mastercard y American Express.</span>
+                      </span>
+                    </label>
+
+                    <label class="pay-option">
+                      <input type="radio" name="payment" value="transfer">
+                      <span class="pay-option-body">
+                        <span class="pay-option-title">Transferencia</span>
+                        <span class="pay-option-desc">Transferencia o depósito SPEI.</span>
+                      </span>
+                    </label>
+
+                    <label class="pay-option">
+                      <input type="radio" name="payment" value="cash">
+                      <span class="pay-option-body">
+                        <span class="pay-option-title">Efectivo</span>
+                        <span class="pay-option-desc">Paga en tienda de conveniencia con tu referencia.</span>
+                      </span>
+                    </label>
+
+                    <label class="pay-option">
+                      <input type="radio" name="payment" value="wallet">
+                      <span class="pay-option-body">
+                        <span class="pay-option-title">Monedero electrónico</span>
+                        <span class="pay-option-desc">Paga con tu saldo Elied.</span>
+                      </span>
+                    </label>
+                  </fieldset>
+                  <p class="field-error" id="payment-error" role="alert" hidden></p>
+
+                  <!-- Panel: tarjeta -->
+                  <div class="pay-panel" data-panel="card" hidden>
+                    <div class="field">
+                      <label for="card-name">Nombre en la tarjeta</label>
+                      <input type="text" id="card-name" autocomplete="cc-name" placeholder="Nombre">
+                    </div>
+                    <div class="field">
+                      <label for="card-number">Número de tarjeta</label>
+                      <input type="text" id="card-number" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="19">
+                    </div>
+                    <div class="field-row">
+                      <div class="field">
+                        <label for="card-expiry">Vencimiento (MM/AA)</label>
+                        <input type="text" id="card-expiry" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/AA" maxlength="5">
+                      </div>
+                      <div class="field">
+                        <label for="card-cvv">CVV</label>
+                        <input type="password" id="card-cvv" data-digits="4" inputmode="numeric" autocomplete="cc-csc" placeholder="•••" maxlength="4">
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Panel: transferencia -->
+                  <div class="pay-panel" data-panel="transfer" hidden>
+                    <dl class="data-list pay-data">
+                      <div class="info"><dt>Banco</dt><dd id="bank-name"></dd></div>
+                      <div class="info"><dt>Beneficiario</dt><dd id="bank-beneficiary"></dd></div>
+                      <div class="info"><dt>CLABE</dt><dd id="bank-clabe"></dd></div>
+                      <div class="info"><dt>Concepto / referencia</dt><dd id="bank-reference"></dd></div>
+                      <div class="info"><dt>Importe</dt><dd id="bank-amount"></dd></div>
+                    </dl>
+                    <div class="check-row">
+                      <input type="checkbox" id="transfer-confirm" data-validate="checked">
+                      <label for="transfer-confirm">Ya realicé la transferencia</label>
+                    </div>
+                  </div>
+
+                  <!-- Panel: efectivo -->
+                  <div class="pay-panel" data-panel="cash" hidden>
+                    <p class="pay-note">Presenta esta referencia en caja de cualquier tienda de conveniencia participante.</p>
+                    <p class="cash-reference" id="cash-reference" aria-label="Referencia de pago"></p>
+                    <dl class="data-list pay-data">
+                      <div class="info"><dt>Importe a pagar</dt><dd id="cash-amount"></dd></div>
+                      <div class="info"><dt>Vigencia</dt><dd id="cash-deadline"></dd></div>
+                    </dl>
+                    <p class="pay-note">Tu pedido se confirmará cuando se registre el pago.</p>
+                  </div>
+
+                  <!-- Panel: monedero -->
+                  <div class="pay-panel" data-panel="wallet" hidden>
+                    <dl class="data-list pay-data">
+                      <div class="info"><dt>Saldo disponible</dt><dd id="wallet-balance"></dd></div>
+                      <div class="info"><dt>Total a pagar</dt><dd id="wallet-total"></dd></div>
+                      <div class="info"><dt>Saldo restante</dt><dd id="wallet-remaining"></dd></div>
+                    </dl>
+                    <p class="field-error" id="wallet-error" role="alert" hidden>Saldo insuficiente. Elige otro método de pago.</p>
+                  </div>
+
+                  <div class="step-actions">
+                    <button type="button" class="btn btn-sm" data-back="1">Regresar</button>
+                    <button type="submit" class="btn btn-primary">Revisar pedido</button>
+                  </div>
+                </form>
+              </section>
+
+              <!-- PASO 3: Confirmación -->
+              <section class="card checkout-step" id="step-3" data-step="3" aria-labelledby="step-3-title" hidden>
+                <h2 class="step-title" id="step-3-title" tabindex="-1">Confirma tu pedido</h2>
+                <dl class="data-list review-list">
+                  <div class="info">
+                    <dt>Enviar a</dt>
+                    <dd id="review-address"></dd>
+                  </div>
+                  <div class="info">
+                    <dt>Contacto</dt>
+                    <dd id="review-contact"></dd>
+                  </div>
+                  <div class="info">
+                    <dt>Método de pago</dt>
+                    <dd id="review-payment"></dd>
+                  </div>
+                </dl>
+                <div class="step-actions">
+                  <button type="button" class="btn btn-sm" data-back="2" id="review-back">Regresar</button>
+                  <button type="button" class="btn btn-primary" id="pay-btn">Pagar</button>
+                </div>
+                <p id="pay-status" class="form-status" role="status" aria-live="polite"></p>
+              </section>
+            </div>
+
+            <aside class="checkout-summary card" aria-labelledby="summary-title">
+              <h2 id="summary-title">Tu pedido</h2>
+              <ul class="summary-items" id="summary-items"></ul>
+              <dl class="summary-list">
+                <div class="summary-row">
+                  <dt>Subtotal</dt>
+                  <dd id="summary-subtotal"></dd>
+                </div>
+                <div class="summary-row summary-discount" id="summary-discount-row" hidden>
+                  <dt>Descuento (<span id="summary-discount-code"></span>)</dt>
+                  <dd id="summary-discount"></dd>
+                </div>
+                <div class="summary-row">
+                  <dt>Envío</dt>
+                  <dd id="summary-shipping"></dd>
+                </div>
+                <div class="summary-row summary-total">
+                  <dt>Total</dt>
+                  <dd id="summary-total"></dd>
+                </div>
+              </dl>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+    <site-footer></site-footer>
+
+    <script src="../../components/site-header/site-header.js" defer></script>
+    <script src="../../components/site-footer/site-footer.js" defer></script>
+    <script src="../../shared/product_data.js" defer></script>
+    <script src="checkout.js" defer></script>
+  </body>
+</html>
