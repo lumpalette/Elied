@@ -36,7 +36,7 @@ class OrderTicket extends HTMLElement {
     const subtotal = items.reduce((sum, i) => sum + i.product.price * i.qty, 0);
     const adjustment = total - subtotal; // envío (+) y descuentos (−)
 
-    const now = new Date();
+    const now = params.get('date') ? new Date(`${params.get('date')}T12:00:00`) : new Date();
     const date = now.toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
     const time = now.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' });
     const folio = `F-${order.replace(/\D/g, '').slice(-6).padStart(6, '0')}`;
@@ -83,7 +83,7 @@ class OrderTicket extends HTMLElement {
         <p class="ticket-muted ticket-note">Precios con IVA incluido. Gracias por comprar en Elied.</p>
 
         <div class="ticket-actions">
-          <a href="${root}pages/confirmation/confirmation.html?${params}" class="btn btn-sm">Regresar</a>
+          <a href="javascript:history.back()" class="btn btn-sm">Regresar</a>
           <button type="button" class="btn btn-primary" id="ticket-download">Descargar PDF</button>
         </div>
         <p class="form-status" id="ticket-status" role="status" aria-live="polite"></p>

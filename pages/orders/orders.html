@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elied, ropa y accesorios</title>
+    <link rel="stylesheet" href="../../shared/styles/base.css">
+    <link rel="stylesheet" href="orders.css">
+  </head>
+  <body>
+    <site-header root="../../" active="profile"></site-header>
+    <main>
+      <section class="page-intro">
+        <div class="wrap">
+          <h1 class="page-title">Mis compras</h1>
+        </div>
+      </section>
+
+      <section class="orders-content">
+        <div class="wrap">
+          <order-history root="../../"></order-history>
+          <a href="../profile/profile.html" class="btn btn-sm orders-back">Volver a mi perfil</a>
+        </div>
+      </section>
+    </main>
+    <site-footer></site-footer>
+
+    <script src="../../components/site-header/site-header.js" defer></script>
+    <script src="../../components/site-footer/site-footer.js" defer></script>
+    <script src="../../shared/product_data.js" defer></script>
+    <script src="orders.js" defer></script>
+  </body>
+</html>
