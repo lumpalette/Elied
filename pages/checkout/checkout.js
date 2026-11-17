@@ -1,13 +1,10 @@
 const FREE_SHIPPING_FROM = 999;
 const SHIPPING_COST = 99;
 const WALLET_BALANCE = 2000; // Saldo simulado del monedero electrónico.
-
-// Cuando exista la página de confirmación (punto A.3), pon aquí su ruta
-// (ej. '../confirmation/confirmation.html') y el checkout redirigirá al pagar.
-const CONFIRMATION_PAGE = null;
+const CONFIRMATION_PAGE = '../confirmation/confirmation.html';;
 
 const BANK = {
-  name: 'Banco Elied (simulado)',
+  name: 'Banco Elied',
   beneficiary: 'Elied Ropa y Accesorios',
   clabe: '0123 4567 8901 2345 67',
 };

@@ -152,12 +152,12 @@ form.addEventListener('submit', e => {
 
   if (editingCode === null) {
     promos.unshift({ code, ...data });
-    showStatus('Promoción agregada (simulado)');
+    showStatus('Promoción agregada');
   } else {
     // Se reemplaza el registro completo para no arrastrar campos que ya no aplican.
     const index = promos.findIndex(p => p.code === editingCode);
     promos[index] = { code: editingCode, ...data };
-    showStatus('Promoción actualizada (simulado)');
+    showStatus('Promoción actualizada');
   }
 
   dialog.close();
@@ -176,13 +176,13 @@ promoBody.addEventListener('click', async e => {
   } else if (button.dataset.action === 'delete') {
     const confirmed = await confirmDialog.ask({
       title: '¿Eliminar promoción?',
-      message: `Se eliminará el código "${promo.code}" de la tienda (simulado).`,
+      message: `Se eliminará el código "${promo.code}" de la tienda.`,
       confirmLabel: 'Eliminar',
     });
     if (!confirmed) return;
 
     promos = promos.filter(p => p.code !== code);
-    showStatus('Promoción eliminada (simulado)');
+    showStatus('Promoción eliminada');
     render();
   }
 });

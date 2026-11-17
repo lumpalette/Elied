@@ -1,0 +1,95 @@
+@import url("../../components/data-list/data-list.css");
+@import url("../../shared/styles/card.css");
+
+order-confirmation {
+  display: block;
+}
+
+.confirmation-content {
+  padding-top: clamp(2.5rem, 6vw, 4rem);
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+}
+
+.confirmation-card {
+  max-width: 640px;
+  margin: 0 auto;
+  border-top: 2px solid var(--olive);
+}
+
+.confirmation-header {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.confirmation-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  background: linear-gradient(155deg, var(--wine), var(--olive));
+  font-size: 1.5rem;
+}
+
+.confirmation-title {
+  margin-bottom: 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+}
+
+.confirmation-text {
+  color: var(--ink-muted);
+}
+
+.confirmation-data {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+@media (max-width: 520px) {
+  .confirmation-data { grid-template-columns: 1fr; }
+}
+
+.confirmation-subtitle {
+  margin-bottom: 0.9rem;
+  font-size: 1.05rem;
+  color: var(--olive);
+}
+
+.summary-items {
+  list-style: none;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.summary-item-qty {
+  display: block;
+  color: var(--ink-muted);
+  font-size: 0.8rem;
+}
+
+.confirmation-total {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0 1.75rem;
+  font-size: 1.1rem;
+}
+
+.confirmation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
