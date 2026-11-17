@@ -2,7 +2,7 @@ const params = new URLSearchParams(window.location.search);
 const product = PRODUCTS.find(p => p.id === Number(params.get('id')));
 
 if (product) {
-  document.title = `Elied - ${product.name}`;
+  document.title = `Elied, ropa y accesorios`;
 
   const thumbnail = document.getElementById('product-thumbnail');
   thumbnail.dataset.tone = product.tone;

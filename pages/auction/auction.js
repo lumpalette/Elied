@@ -19,7 +19,7 @@ const bidInput = document.getElementById('bid-input');
 const bidSubmit = document.getElementById('bid-submit');
 const bidStatus = document.getElementById('bid-status');
 
-document.title = `Elied - Subasta: ${product.name}`;
+document.title = `, ropa y accesorios`;
 document.getElementById('auction-thumbnail').dataset.tone = product.tone;
 document.getElementById('auction-category').textContent = CATEGORY_LABELS[product.category];
 document.getElementById('auction-name').textContent = product.name;
