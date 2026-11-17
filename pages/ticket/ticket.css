@@ -1,0 +1,133 @@
+@import url("../../components/data-list/data-list.css");
+@import url("../../shared/styles/card.css");
+
+order-ticket {
+  display: block;
+}
+
+.ticket-content {
+  padding-top: clamp(2.5rem, 6vw, 4rem);
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+}
+
+.ticket {
+  max-width: 680px;
+  margin: 0 auto;
+  border-top: 2px solid var(--wine-light);
+}
+
+.ticket-header {
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px dashed var(--line);
+  text-align: center;
+}
+
+.ticket-business {
+  margin-bottom: 0.3rem;
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+}
+
+.ticket-muted {
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+}
+
+.ticket-label {
+  margin-top: 0.75rem;
+  color: var(--olive);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ticket-data {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+@media (max-width: 520px) {
+  .ticket-data { grid-template-columns: 1fr; }
+}
+
+.ticket-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.ticket-table th {
+  padding: 0.5rem 0.4rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--olive);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.ticket-table td {
+  padding: 0.6rem 0.4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.ticket-table th:not(:first-child),
+.ticket-table td:not(:first-child) {
+  text-align: right;
+}
+
+.ticket-totals {
+  margin: 1.25rem 0 0 auto;
+  max-width: 280px;
+}
+
+.ticket-totals div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+  color: var(--ink-muted);
+}
+
+.ticket-totals .ticket-total {
+  margin-top: 0.4rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--line);
+  color: inherit;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.ticket-note {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.ticket-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+@media print {
+  site-header,
+  site-footer,
+  .ticket-actions,
+  #ticket-status {
+    display: none !important;
+  }
+
+  .ticket-content {
+    padding: 0;
+  }
+
+  .ticket {
+    max-width: none;
+    border: none;
+    box-shadow: none;
+  }
+}
